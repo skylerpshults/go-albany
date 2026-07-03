@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Go Albany</title>
+    <style>
+      :root {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f4ead7;
+        color: #2d241a;
+        --ink: #060504;
+        --charcoal: #17130f;
+        --ivory: #f4ead7;
+        --parchment: #fff8ea;
+        --sand: #dfc79b;
+        --gold: #b88b42;
+        --olive: #53683d;
+        --river: #7fa7af;
+        --terracotta: #c86f4c;
+        --text: #2d241a;
+        --muted: #685d4e;
+        --line: rgba(45, 36, 26, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f4ead7 0%, #fff8ea 46%, #f4ead7 100%);
+        color: var(--text);
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 248, 234, 0.18);
+        background: rgba(6, 5, 4, 0.9);
+        backdrop-filter: blur(16px);
+      }
+
+      nav {
+        width: min(1180px, calc(100% - 32px));
+        min-height: 76px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ivory);
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .brand img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.28));
+      }
+
+      .brand span {
+        font-size: 1.1rem;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .nav-links a {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 12px;
+        border-radius: 999px;
+        color: rgba(244, 234, 215, 0.86);
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        background: rgba(244, 234, 215, 0.1);
+        color: #ffffff;
+      }
+
+      main {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .hero {
+        position: relative;
+        min-height: calc(100vh - 76px);
+        padding: 84px 0 64px;
+        background:
+          linear-gradient(115deg, rgba(6, 5, 4, 0.97) 0%, rgba(23, 19, 15, 0.94) 52%, rgba(83, 104, 61, 0.82) 100%),
+          radial-gradient(circle at 80% 12%, rgba(127, 167, 175, 0.32), transparent 34%),
+          var(--charcoal);
+        color: var(--ivory);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 10px;
+        background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--river), var(--olive));
+      }
+
+      .hero-layout {
+        position: relative;
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
+        gap: 56px;
+        align-items: center;
+      }
+
+      .hero-content {
+        max-width: 620px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: #f2b78e;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      h1 {
+        margin: 0;
+        color: #fff8ea;
+        font-size: clamp(3.5rem, 9vw, 7.5rem);
+        line-height: 0.9;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 610px;
+        margin: 26px 0 0;
+        color: rgba(244, 234, 215, 0.82);
+        font-size: clamp(1.13rem, 1.8vw, 1.38rem);
+        line-height: 1.65;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .button {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 22px;
+        border: 2px solid var(--terracotta);
+        border-radius: 999px;
+        background: var(--terracotta);
+        color: #fff8ea;
+        font-weight: 900;
+        text-decoration: none;
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        background: #a95739;
+        border-color: #a95739;
+      }
+
+      .button.secondary {
+        border-color: rgba(244, 234, 215, 0.44);
+        background: rgba(244, 234, 215, 0.08);
+        color: var(--ivory);
+      }
+
+      .button.secondary:hover {
+        background: rgba(244, 234, 215, 0.16);
+        border-color: rgba(244, 234, 215, 0.68);
+      }
+
+      .video-frame {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 1px solid rgba(244, 234, 215, 0.34);
+        border-radius: 8px;
+        background: var(--ink);
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
+      }
+
+      .video-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        border: 8px solid rgba(244, 234, 215, 0.08);
+      }
+
+      .video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      section {
+        padding: 92px 0;
+      }
+
+      .section-grid {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+        gap: 64px;
+        align-items: start;
+      }
+
+      #who-we-are {
+        background: var(--parchment);
+      }
+
+      #support {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(83, 104, 61, 0.09), rgba(127, 167, 175, 0.1)),
+          var(--ivory);
+      }
+
+      #newsletter {
+        background: var(--charcoal);
+        color: var(--ivory);
+      }
+
+      h2 {
+        position: relative;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(2.25rem, 4vw, 4rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 74px;
+        height: 5px;
+        margin-top: 22px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      }
+
+      #newsletter h2 {
+        color: var(--ivory);
+      }
+
+      .section-copy {
+        display: grid;
+        gap: 22px;
+      }
+
+      .section-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.1rem;
+        line-height: 1.78;
+      }
+
+      #newsletter .section-copy p {
+        color: rgba(244, 234, 215, 0.76);
+      }
+
+      .support-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .support-list li {
+        min-height: 150px;
+        padding: 22px;
+        border: 1px solid rgba(45, 36, 26, 0.14);
+        border-top: 5px solid var(--olive);
+        border-radius: 8px;
+        background: rgba(255, 248, 234, 0.82);
+        color: var(--text);
+        line-height: 1.55;
+        box-shadow: 0 14px 34px rgba(45, 36, 26, 0.08);
+      }
+
+      .support-list li:nth-child(2) {
+        border-top-color: var(--terracotta);
+      }
+
+      .support-list li:nth-child(3) {
+        border-top-color: var(--river);
+      }
+
+      form {
+        max-width: 620px;
+        display: grid;
+        gap: 14px;
+      }
+
+      label {
+        display: grid;
+        gap: 10px;
+        color: var(--ivory);
+        font-weight: 900;
+      }
+
+      input {
+        width: 100%;
+        min-height: 56px;
+        padding: 0 16px;
+        border: 2px solid rgba(244, 234, 215, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 248, 234, 0.1);
+        color: #fff8ea;
+        font: inherit;
+      }
+
+      input::placeholder {
+        color: rgba(244, 234, 215, 0.5);
+      }
+
+      input:focus {
+        outline: 3px solid rgba(200, 111, 76, 0.36);
+        border-color: var(--terracotta);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: end;
+      }
+
+      footer {
+        padding: 32px 0 48px;
+        background: var(--charcoal);
+        color: rgba(244, 234, 215, 0.62);
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-layout,
+        .section-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .support-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        nav {
+          min-height: 68px;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          gap: 10px;
+          padding: 12px 0;
+        }
+
+        .brand img {
+          width: 42px;
+          height: 42px;
+        }
+
+        .nav-links {
+          width: 100%;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+
+        .nav-links a {
+          min-height: 34px;
+          padding: 0 10px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 54px 0 46px;
+        }
+
+        section {
+          padding: 64px 0;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#">
+          <img src="assets/goalb.png" alt="" aria-hidden="true">
+          <span>Go Albany</span>
+        </a>
+        <div class="nav-links">
+          <a href="#who-we-are">Who we are</a>
+          <a href="#support">Support</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <p class="eyebrow">A church planting initiative</p>
+            <h1 id="page-title">Go Albany</h1>
+            <p>
+              Joining God in the Capital Region through prayer, discipleship,
+              partnership, and the work of planting healthy gospel-centered churches.
+            </p>
+            <div class="actions">
+              <a class="button" href="#newsletter">Sign up</a>
+              <a class="button secondary" href="#support">Support the work</a>
+            </div>
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&playsinline=1"
+              title="Go Albany introductory video"
+              loading="lazy"
+              referrerpolicy="origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+              allowfullscreen>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Watch the video on YouTube</a>
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="who-we-are" aria-labelledby="who-title">
+        <div class="section-grid">
+          <h2 id="who-title">Who we are</h2>
+          <div class="section-copy">
+            <p>
+              Go Albany exists to encourage existing churches, develop leaders,
+              make disciples, and help plant churches where they are needed.
+            </p>
+            <p>
+              Our desire is not simply to start something new, but to come alongside
+              what God is already doing in Albany and the surrounding communities.
+              We are praying for churches rooted in Scripture, committed to prayer,
+              serious about discipleship, and deeply present in their neighborhoods.
+            </p>
+            <p>
+              At the heart of Go Albany is a simple conviction: the gospel changes
+              people, churches strengthen communities, and healthy churches plant
+              more healthy churches.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="support" aria-labelledby="support-title">
+        <div class="section-grid">
+          <h2 id="support-title">Support</h2>
+          <div class="section-copy">
+            <p>
+              Your support helps this work take root through prayer, generosity,
+              partnership, and faithful long-term ministry investment.
+            </p>
+            <ul class="support-list">
+              <li>Pray for Albany and for healthy churches to be strengthened and planted.</li>
+              <li>Give financially to help fund gatherings, outreach, training, and ministry needs.</li>
+              <li>Partner with the core team as the work takes shape in the Capital Region.</li>
+            </ul>
+            <a class="button" href="mailto:goalbany@gmail.com">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="newsletter" aria-labelledby="newsletter-title">
+        <div class="section-grid">
+          <h2 id="newsletter-title">Sign up for our newsletter</h2>
+          <div class="section-copy">
+            <p>
+              Get occasional updates about prayer needs, gatherings, launch plans,
+              and ways to support the church planting initiative.
+            </p>
+            <form>
+              <div class="form-row">
+                <label>
+                  Email address
+                  <input type="email" name="email" placeholder="you@example.com" required>
+                </label>
+                <button class="button" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Go Albany</p>
+    </footer>
+  </body>
+</html>
