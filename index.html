@@ -7,20 +7,20 @@
     <style>
       :root {
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #f4ead7;
-        color: #2d241a;
-        --ink: #060504;
-        --charcoal: #17130f;
-        --ivory: #f4ead7;
-        --parchment: #fff8ea;
-        --sand: #dfc79b;
-        --gold: #b88b42;
-        --olive: #53683d;
-        --river: #7fa7af;
-        --terracotta: #c86f4c;
-        --text: #2d241a;
-        --muted: #685d4e;
-        --line: rgba(45, 36, 26, 0.16);
+        background: #f5f1e8;
+        color: #30281f;
+        --ink: #1a1611;
+        --charcoal: #e6dfd2;
+        --ivory: #fffdf8;
+        --parchment: #fbf7ef;
+        --sand: #dcc9a1;
+        --gold: #b88a44;
+        --olive: #66774e;
+        --river: #799da7;
+        --terracotta: #c36e4a;
+        --text: #30281f;
+        --muted: #6f6559;
+        --line: rgba(48, 40, 31, 0.12);
       }
 
       * {
@@ -33,7 +33,10 @@
 
       body {
         margin: 0;
-        background: linear-gradient(180deg, #f4ead7 0%, #fff8ea 46%, #f4ead7 100%);
+        background:
+          radial-gradient(circle at top left, rgba(200, 188, 165, 0.26), transparent 28%),
+          radial-gradient(circle at top right, rgba(121, 157, 167, 0.18), transparent 24%),
+          linear-gradient(180deg, #f7f2ea 0%, #f4efe5 48%, #efe7d8 100%);
         color: var(--text);
       }
 
@@ -41,9 +44,10 @@
         position: sticky;
         top: 0;
         z-index: 10;
-        border-bottom: 1px solid rgba(255, 248, 234, 0.18);
-        background: rgba(6, 5, 4, 0.9);
+        border-bottom: 1px solid rgba(48, 40, 31, 0.08);
+        background: rgba(250, 246, 238, 0.9);
         backdrop-filter: blur(16px);
+        box-shadow: 0 8px 30px rgba(48, 40, 31, 0.05);
       }
 
       nav {
@@ -60,7 +64,7 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        color: var(--ivory);
+        color: var(--ink);
         font-weight: 900;
         text-decoration: none;
       }
@@ -69,7 +73,7 @@
         width: 48px;
         height: 48px;
         object-fit: contain;
-        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.28));
+        filter: drop-shadow(0 6px 12px rgba(48, 40, 31, 0.12));
       }
 
       .brand span {
@@ -91,13 +95,13 @@
         align-items: center;
         padding: 0 12px;
         border-radius: 999px;
-        color: rgba(244, 234, 215, 0.86);
+        color: rgba(48, 40, 31, 0.78);
         text-decoration: none;
       }
 
       .nav-links a:hover {
-        background: rgba(244, 234, 215, 0.1);
-        color: #ffffff;
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--ink);
       }
 
       main {
@@ -107,13 +111,13 @@
 
       .hero {
         position: relative;
-        min-height: calc(100vh - 76px);
-        padding: 84px 0 64px;
+        min-height: auto;
+        padding: 72px 0 56px;
         background:
-          linear-gradient(115deg, rgba(6, 5, 4, 0.97) 0%, rgba(23, 19, 15, 0.94) 52%, rgba(83, 104, 61, 0.82) 100%),
-          radial-gradient(circle at 80% 12%, rgba(127, 167, 175, 0.32), transparent 34%),
-          var(--charcoal);
-        color: var(--ivory);
+          linear-gradient(115deg, rgba(255, 250, 242, 0.94) 0%, rgba(248, 241, 229, 0.96) 54%, rgba(233, 229, 217, 0.98) 100%),
+          radial-gradient(circle at 80% 12%, rgba(121, 157, 167, 0.14), transparent 32%),
+          var(--parchment);
+        color: var(--text);
       }
 
       .hero::after {
@@ -130,17 +134,17 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
-        gap: 56px;
+        gap: 44px;
         align-items: center;
       }
 
       .hero-content {
-        max-width: 620px;
+        max-width: 580px;
       }
 
       .eyebrow {
         margin: 0 0 18px;
-        color: #f2b78e;
+        color: var(--terracotta);
         font-size: 0.78rem;
         font-weight: 900;
         letter-spacing: 0.16em;
@@ -154,7 +158,7 @@
 
       h1 {
         margin: 0;
-        color: #fff8ea;
+        color: var(--ink);
         font-size: clamp(3.5rem, 9vw, 7.5rem);
         line-height: 0.9;
         letter-spacing: 0;
@@ -162,17 +166,17 @@
 
       .hero p {
         max-width: 610px;
-        margin: 26px 0 0;
-        color: rgba(244, 234, 215, 0.82);
-        font-size: clamp(1.13rem, 1.8vw, 1.38rem);
-        line-height: 1.65;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+        line-height: 1.6;
       }
 
       .actions {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
-        margin-top: 34px;
+        margin-top: 28px;
       }
 
       .button {
@@ -184,7 +188,7 @@
         border: 2px solid var(--terracotta);
         border-radius: 999px;
         background: var(--terracotta);
-        color: #fff8ea;
+        color: #fffdf8;
         font-weight: 900;
         text-decoration: none;
         transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
@@ -197,14 +201,14 @@
       }
 
       .button.secondary {
-        border-color: rgba(244, 234, 215, 0.44);
-        background: rgba(244, 234, 215, 0.08);
-        color: var(--ivory);
+        border-color: rgba(48, 40, 31, 0.14);
+        background: rgba(255, 255, 255, 0.52);
+        color: var(--ink);
       }
 
       .button.secondary:hover {
-        background: rgba(244, 234, 215, 0.16);
-        border-color: rgba(244, 234, 215, 0.68);
+        background: rgba(255, 255, 255, 0.82);
+        border-color: rgba(48, 40, 31, 0.22);
       }
 
       .video-frame {
@@ -212,10 +216,10 @@
         overflow: hidden;
         width: 100%;
         aspect-ratio: 16 / 9;
-        border: 1px solid rgba(244, 234, 215, 0.34);
+        border: 1px solid rgba(48, 40, 31, 0.1);
         border-radius: 8px;
-        background: var(--ink);
-        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
+        background: #11100e;
+        box-shadow: 0 28px 70px rgba(48, 40, 31, 0.16);
       }
 
       .video-frame::before {
@@ -224,7 +228,7 @@
         inset: 0;
         z-index: 1;
         pointer-events: none;
-        border: 8px solid rgba(244, 234, 215, 0.08);
+        border: 8px solid rgba(255, 255, 255, 0.08);
       }
 
       .video-frame iframe {
@@ -236,7 +240,7 @@
       }
 
       section {
-        padding: 92px 0;
+        padding: 72px 0;
       }
 
       .section-grid {
@@ -244,7 +248,7 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
-        gap: 64px;
+        gap: 44px;
         align-items: start;
       }
 
@@ -256,13 +260,15 @@
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
         background:
-          linear-gradient(180deg, rgba(83, 104, 61, 0.09), rgba(127, 167, 175, 0.1)),
+          linear-gradient(180deg, rgba(102, 119, 78, 0.08), rgba(121, 157, 167, 0.08)),
           var(--ivory);
       }
 
       #newsletter {
-        background: var(--charcoal);
-        color: var(--ivory);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35)),
+          var(--charcoal);
+        color: var(--text);
       }
 
       h2 {
@@ -277,52 +283,52 @@
       h2::after {
         content: "";
         display: block;
-        width: 74px;
+        width: 56px;
         height: 5px;
-        margin-top: 22px;
+        margin-top: 18px;
         border-radius: 999px;
         background: linear-gradient(90deg, var(--terracotta), var(--gold));
       }
 
       #newsletter h2 {
-        color: var(--ivory);
+        color: var(--ink);
       }
 
       .section-copy {
         display: grid;
-        gap: 22px;
+        gap: 18px;
       }
 
       .section-copy p {
         margin: 0;
         color: var(--muted);
-        font-size: 1.1rem;
-        line-height: 1.78;
+        font-size: 1.04rem;
+        line-height: 1.7;
       }
 
       #newsletter .section-copy p {
-        color: rgba(244, 234, 215, 0.76);
+        color: var(--muted);
       }
 
       .support-list {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-        margin: 10px 0 0;
+        gap: 12px;
+        margin: 8px 0 0;
         padding: 0;
         list-style: none;
       }
 
       .support-list li {
-        min-height: 150px;
-        padding: 22px;
-        border: 1px solid rgba(45, 36, 26, 0.14);
+        min-height: 132px;
+        padding: 18px;
+        border: 1px solid rgba(48, 40, 31, 0.1);
         border-top: 5px solid var(--olive);
         border-radius: 8px;
-        background: rgba(255, 248, 234, 0.82);
+        background: rgba(255, 255, 255, 0.74);
         color: var(--text);
         line-height: 1.55;
-        box-shadow: 0 14px 34px rgba(45, 36, 26, 0.08);
+        box-shadow: 0 14px 34px rgba(48, 40, 31, 0.06);
       }
 
       .support-list li:nth-child(2) {
@@ -336,13 +342,13 @@
       form {
         max-width: 620px;
         display: grid;
-        gap: 14px;
+        gap: 12px;
       }
 
       label {
         display: grid;
         gap: 10px;
-        color: var(--ivory);
+        color: var(--ink);
         font-weight: 900;
       }
 
@@ -350,18 +356,39 @@
         width: 100%;
         min-height: 56px;
         padding: 0 16px;
-        border: 2px solid rgba(244, 234, 215, 0.24);
+        border: 2px solid rgba(48, 40, 31, 0.14);
         border-radius: 8px;
-        background: rgba(255, 248, 234, 0.1);
-        color: #fff8ea;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--ink);
         font: inherit;
       }
 
+      textarea {
+        width: 100%;
+        min-height: 160px;
+        padding: 16px;
+        border: 2px solid rgba(48, 40, 31, 0.14);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--ink);
+        font: inherit;
+        resize: vertical;
+      }
+
       input::placeholder {
-        color: rgba(244, 234, 215, 0.5);
+        color: rgba(111, 101, 89, 0.72);
+      }
+
+      textarea::placeholder {
+        color: rgba(111, 101, 89, 0.72);
       }
 
       input:focus {
+        outline: 3px solid rgba(200, 111, 76, 0.36);
+        border-color: var(--terracotta);
+      }
+
+      textarea:focus {
         outline: 3px solid rgba(200, 111, 76, 0.36);
         border-color: var(--terracotta);
       }
@@ -374,9 +401,9 @@
       }
 
       footer {
-        padding: 32px 0 48px;
-        background: var(--charcoal);
-        color: rgba(244, 234, 215, 0.62);
+        padding: 24px 0 36px;
+        background: rgba(241, 236, 226, 0.95);
+        color: rgba(48, 40, 31, 0.64);
         text-align: center;
       }
 
@@ -420,11 +447,11 @@
 
         .hero {
           min-height: auto;
-          padding: 54px 0 46px;
+          padding: 48px 0 40px;
         }
 
         section {
-          padding: 64px 0;
+          padding: 56px 0;
         }
 
         .form-row {
@@ -442,11 +469,11 @@
       <nav aria-label="Main navigation">
         <a class="brand" href="#">
           <img src="assets/goalb.png" alt="" aria-hidden="true">
-          <span>Go Albany</span>
+          <span>Go Albany </span>
         </a>
         <div class="nav-links">
           <a href="#who-we-are">Who we are</a>
-          <a href="#support">Support</a>
+          <a href="#support">Join the Mission</a>
           <a href="#newsletter">Newsletter</a>
         </div>
       </nav>
@@ -456,7 +483,7 @@
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-layout">
           <div class="hero-content">
-            <p class="eyebrow">A church planting initiative</p>
+            <p class="eyebrow">A Church Planting Initiative</p>
             <h1 id="page-title">Go Albany</h1>
             <p>
               Joining God in the Capital Region through prayer, discipleship,
@@ -507,7 +534,7 @@
 
       <section id="support" aria-labelledby="support-title">
         <div class="section-grid">
-          <h2 id="support-title">Support</h2>
+          <h2 id="support-title">Join the Mission</h2>
           <div class="section-copy">
             <p>
               Your support helps this work take root through prayer, generosity,
