@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Go Albany</title>
+    <title>Go Albany | Church Planting Prospectus</title>
     <style>
       :root {
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: "Quincy CF";
         background: #f4f4f4;
         color: #001254;
         --ink: #001254;
@@ -21,6 +21,10 @@
         --text: #001254;
         --muted: #3a4a7a;
         --line: rgba(0, 18, 84, 0.12);
+        --font-body: "Quincy CF";
+        --font-display: "Fraunces";
+        --font-script-primary: "Espiritu Script";
+        --font-script-secondary: "Jimmy Script";
       }
 
       * {
@@ -33,6 +37,7 @@
 
       body {
         margin: 0;
+        font-family: var(--font-body);
         background:
           radial-gradient(circle at top left, rgba(195, 229, 226, 0.45), transparent 28%),
           radial-gradient(circle at top right, rgba(252, 196, 0, 0.12), transparent 24%),
@@ -70,18 +75,20 @@
       }
 
       .brand img {
-        width: 48px;
-        height: 48px;
+        width: 88px;
+        height: 88px;
         object-fit: contain;
         filter: drop-shadow(0 6px 12px rgba(0, 18, 84, 0.12));
       }
 
       .brand span {
+        font-family: var(--font-body);
         font-size: 1.1rem;
         letter-spacing: 0.02em;
       }
 
       .nav-links {
+        font-family: var(--font-body);
         display: flex;
         align-items: center;
         gap: 8px;
@@ -142,18 +149,112 @@
         max-width: 580px;
       }
 
+      .hero-panel {
+        display: grid;
+        gap: 16px;
+      }
+
+      .video-frame {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 1px solid rgba(0, 18, 84, 0.12);
+        border-radius: 18px;
+        background: #001254;
+        box-shadow: 0 22px 52px rgba(0, 18, 84, 0.12);
+      }
+
+      .video-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        border: 8px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .panel-card {
+        padding: 22px;
+        border: 1px solid rgba(0, 18, 84, 0.12);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 22px 52px rgba(0, 18, 84, 0.08);
+      }
+
+      .panel-label {
+        margin: 0 0 10px;
+        font-family: var(--font-script-secondary);
+        color: var(--terracotta);
+        font-size: 1.35rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .panel-card h3 {
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.65rem;
+        line-height: 1.05;
+      }
+
+      .panel-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .panel-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .stat-card {
+        padding: 16px;
+        border: 1px solid rgba(0, 18, 84, 0.1);
+        border-radius: 14px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(195, 229, 226, 0.25));
+      }
+
+      .stat-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-family: var(--font-display);
+        color: var(--ink);
+        font-size: 1.6rem;
+        line-height: 1;
+      }
+
+      .stat-card span {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
       .eyebrow {
         margin: 0 0 18px;
+        font-family: var(--font-script-primary);
         color: var(--terracotta);
-        font-size: 0.78rem;
-        font-weight: 900;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
+        font-size: 1.45rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
       }
 
       h1,
       h2 {
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-display);
       }
 
       h1 {
@@ -180,6 +281,7 @@
       }
 
       .button {
+        font-family: var(--font-body);
         min-height: 50px;
         display: inline-flex;
         align-items: center;
@@ -209,34 +311,6 @@
       .button.secondary:hover {
         background: #ffffff;
         border-color: rgba(0, 18, 84, 0.28);
-      }
-
-      .video-frame {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        border: 1px solid rgba(0, 18, 84, 0.12);
-        border-radius: 8px;
-        background: #001254;
-        box-shadow: 0 28px 70px rgba(0, 18, 84, 0.16);
-      }
-
-      .video-frame::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
-        border: 8px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .video-frame iframe {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
       }
 
       section {
@@ -339,6 +413,38 @@
         border-top-color: var(--gold);
       }
 
+      .value-grid,
+      .path-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      .value-card,
+      .path-card {
+        padding: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.1);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 14px 34px rgba(0, 18, 84, 0.06);
+      }
+
+      .value-card strong,
+      .path-card strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--ink);
+        font-size: 1.02rem;
+      }
+
+      .value-card p,
+      .path-card p {
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+
       form {
         max-width: 620px;
         display: grid;
@@ -414,6 +520,12 @@
           gap: 36px;
         }
 
+        .panel-grid,
+        .value-grid,
+        .path-grid {
+          grid-template-columns: 1fr;
+        }
+
         .support-list {
           grid-template-columns: 1fr;
         }
@@ -430,8 +542,8 @@
         }
 
         .brand img {
-          width: 42px;
-          height: 42px;
+          width: 64px;
+          height: 64px;
         }
 
         .nav-links {
@@ -469,10 +581,11 @@
       <nav aria-label="Main navigation">
         <a class="brand" href="#">
           <img src="assets/GA_Logo_Horizontal_Color.svg" alt="" aria-hidden="true">
-          <span>Go Albany </span>
         </a>
         <div class="nav-links">
           <a href="#who-we-are">Who we are</a>
+          <a href="#bethlehem">Bethlehem</a>
+          <a href="#discipleship">Discipleship</a>
           <a href="#support">Join the Mission</a>
           <a href="#newsletter">Newsletter</a>
         </div>
@@ -483,28 +596,32 @@
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-layout">
           <div class="hero-content">
-            <p class="eyebrow">A Church Planting Initiative</p>
+            <p class="eyebrow">Church Planting Prospectus</p>
             <h1 id="page-title">Go Albany</h1>
             <p>
-              Joining God in the Capital Region through prayer, discipleship,
-              partnership, and the work of planting healthy gospel-centered churches.
+              We are planting a gospel-centered, disciple-making church in Bethlehem
+              to serve Albany and the wider Capital Region. Our hope is to center
+              whole lives on Jesus, make disciples who make disciples, and build a
+              church that can help multiply more healthy churches.
             </p>
             <div class="actions">
-              <a class="button" href="#newsletter">Sign up</a>
-              <a class="button secondary" href="#support">Support the work</a>
+              <a class="button" href="#support">Partner with us</a>
+              <a class="button secondary" href="#newsletter">Get updates</a>
             </div>
           </div>
 
-          <div class="video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&playsinline=1"
-              title="Go Albany introductory video"
-              loading="lazy"
-              referrerpolicy="origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-              allowfullscreen>
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Watch the video on YouTube</a>
-            </iframe>
+          <div class="hero-panel">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&playsinline=1"
+                title="Go Albany introductory video"
+                loading="lazy"
+                referrerpolicy="origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                allowfullscreen>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Watch the video on YouTube</a>
+              </iframe>
+            </div>
           </div>
         </div>
       </section>
@@ -514,20 +631,87 @@
           <h2 id="who-title">Who we are</h2>
           <div class="section-copy">
             <p>
-              Go Albany exists to encourage existing churches, develop leaders,
-              make disciples, and help plant churches where they are needed.
+              Go Albany exists to center our lives on Jesus as we make disciples and
+              multiply churches.
             </p>
             <p>
-              Our desire is not simply to start something new, but to come alongside
-              what God is already doing in Albany and the surrounding communities.
-              We are praying for churches rooted in Scripture, committed to prayer,
-              serious about discipleship, and deeply present in their neighborhoods.
+              The church we are pursuing will be rooted in Scripture, dependent on
+              prayer, committed to meaningful relationships, and focused on helping
+              people trust Jesus, obey Jesus, become like Jesus, and help others do
+              the same.
+            </p>
+            <div class="value-grid">
+              <article class="value-card">
+                <strong>Jesus-centered</strong>
+                <p>The life, death, and resurrection of Jesus stay at the center of preaching, worship, discipleship, and mission.</p>
+              </article>
+              <article class="value-card">
+                <strong>Prayer-shaped</strong>
+                <p>We want decisions, gatherings, and relationships to be marked by dependence on God.</p>
+              </article>
+              <article class="value-card">
+                <strong>Disciple-making</strong>
+                <p>We are building a church that develops disciples, leaders, and future church planters.</p>
+              </article>
+              <article class="value-card">
+                <strong>Multiplying</strong>
+                <p>Healthy churches should not exist only for themselves; they should send people and resources outward.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="bethlehem" aria-labelledby="bethlehem-title">
+        <div class="section-grid">
+          <h2 id="bethlehem-title">Why Bethlehem</h2>
+          <div class="section-copy">
+            <p>
+              Bethlehem gives us a practical and strategic starting point. It is
+              close to Albany, connected to the wider region, and full of people
+              whose lives are shaped by work, family, school, and long commutes.
             </p>
             <p>
-              At the heart of Go Albany is a simple conviction: the gospel changes
-              people, churches strengthen communities, and healthy churches plant
-              more healthy churches.
+              The area is strong on paper, but many people remain disconnected from
+              a healthy local church. We want to enter with genuine affection,
+              listen well, open our home, and become a faithful presence over time.
             </p>
+            <ul class="support-list">
+              <li>A place to plant deeply in one community while remaining connected to Albany and the Capital Region.</li>
+              <li>A community with more than 135,500 people within a fifteen-minute drive.</li>
+              <li>A long-term opportunity to develop disciples and leaders who can be sent throughout the region.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="discipleship" aria-labelledby="discipleship-title">
+        <div class="section-grid">
+          <h2 id="discipleship-title">How disciples grow</h2>
+          <div class="section-copy">
+            <p>
+              Discipleship is more than information or attendance. It is a clear
+              path that helps people move from first connection to membership,
+              active formation, leadership, and multiplication.
+            </p>
+            <div class="path-grid">
+              <article class="path-card">
+                <strong>Rooted</strong>
+                <p>A six-week introduction to the gospel, God, Scripture, mission, and church life.</p>
+              </article>
+              <article class="path-card">
+                <strong>Disciple-making relationships</strong>
+                <p>Small groups of two or three people meeting regularly for life-on-life discipleship.</p>
+              </article>
+              <article class="path-card">
+                <strong>Membership</strong>
+                <p>A growing church body where people are known, equipped, and committed to one another.</p>
+              </article>
+              <article class="path-card">
+                <strong>Leadership and sending</strong>
+                <p>Developing leaders who can serve, equip others, and help plant additional churches.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -537,26 +721,62 @@
           <h2 id="support-title">Join the Mission</h2>
           <div class="section-copy">
             <p>
-              Your support helps this work take root through prayer, generosity,
-              partnership, and faithful long-term ministry investment.
+              We are inviting churches and individuals to come alongside us as true
+              ministry partners, helping establish a healthy church with a long-term
+              presence in the Capital Region.
             </p>
             <ul class="support-list">
-              <li>Pray for Albany and for healthy churches to be strengthened and planted.</li>
-              <li>Give financially to help fund gatherings, outreach, training, and ministry needs.</li>
-              <li>Partner with the core team as the work takes shape in the Capital Region.</li>
+              <li>Pray for our family, for the people of Albany, and for doors to open for gospel relationships.</li>
+              <li>Share our story with others who may want to help build the network of partners around this work.</li>
+              <li>Give financially to help provide the foundation for hospitality, gatherings, and long-term ministry.</li>
             </ul>
-            <a class="button" href="mailto:goalbany@gmail.com">Get in touch</a>
+            <div class="actions">
+              <a class="button" href="mailto:goalbanynewyork@gmail.com">Get in touch</a>
+              <a class="button secondary" href="https://giving.myamplify.io//app/giving/crosspoint" target="_blank" rel="noopener noreferrer">Give here</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="launch-point" aria-labelledby="launch-point-title">
+        <div class="section-grid">
+          <h2 id="launch-point-title">Launch point</h2>
+          <div class="section-copy">
+            <article class="panel-card">
+              <p class="panel-label">Bethlehem, New York</p>
+              <h3>Close to Albany, rooted for the long term</h3>
+              <p>
+                Bethlehem gives us a strategic entry point close to Albany, where we
+                can build real relationships, serve the community, and establish a
+                lasting local presence.
+              </p>
+            </article>
+
+            <div class="panel-grid" aria-label="Prospectus highlights">
+              <div class="stat-card">
+                <strong>135,500+</strong>
+                <span>people within a fifteen-minute drive of Bethlehem</span>
+              </div>
+              <div class="stat-card">
+                <strong>20</strong>
+                <span>partner churches we are praying for in the first three years</span>
+              </div>
+              <div class="stat-card">
+                <strong>6 weeks</strong>
+                <span>for Rooted, the introduction to gospel, Scripture, mission, and church life</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="newsletter" aria-labelledby="newsletter-title">
         <div class="section-grid">
-          <h2 id="newsletter-title">Sign up for our newsletter</h2>
+          <h2 id="newsletter-title">Stay connected</h2>
           <div class="section-copy">
             <p>
-              Get occasional updates about prayer needs, gatherings, launch plans,
-              and ways to support the church planting initiative.
+              We send occasional updates about prayer needs, launch plans,
+              gatherings, and practical ways to support the plant.
             </p>
             <form>
               <div class="form-row">
@@ -573,7 +793,7 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 Go Albany</p>
+      <p>&copy; 2026 Go Albany | goalbanynewyork@gmail.com</p>
     </footer>
   </body>
 </html>
