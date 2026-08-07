@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Go Albany | Church Planting Prospectus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
       :root {
         font-family: "Quincy CF";
@@ -263,6 +264,16 @@
         font-size: clamp(3.5rem, 9vw, 7.5rem);
         line-height: 0.9;
         letter-spacing: 0;
+      }
+
+      .hero-logo {
+        line-height: 0;
+      }
+
+      .hero-logo img {
+        display: block;
+        width: min(620px, 100%);
+        height: auto;
       }
 
       .hero p {
@@ -597,7 +608,9 @@
         <div class="hero-layout">
           <div class="hero-content">
             <p class="eyebrow">Church Planting Prospectus</p>
-            <h1 id="page-title">Go Albany</h1>
+            <h1 id="page-title" class="hero-logo">
+              <img src="assets/GA_Logo_Horizontal_Color.svg" alt="Go Albany">
+            </h1>
             <p>
               We are planting a gospel-centered, disciple-making church in Bethlehem
               to serve Albany and the wider Capital Region. Our hope is to center
@@ -795,5 +808,6 @@
     <footer>
       <p>&copy; 2026 Go Albany | goalbanynewyork@gmail.com</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
