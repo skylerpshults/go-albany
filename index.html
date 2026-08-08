@@ -495,6 +495,10 @@
         background: var(--parchment);
       }
 
+      #discipleship {
+        background: var(--parchment);
+      }
+
       .who-label {
         font-family: var(--font-body);
         font-size: 0.92rem;
@@ -515,8 +519,9 @@
         margin: 0;
         color: var(--ink);
         font-family: var(--font-display);
-        font-size: clamp(2.5rem, 4.4vw, 4.4rem);
+        font-size: clamp(2.1rem, 3.2vw, 3.6rem);
         line-height: 0.95;
+        white-space: nowrap;
       }
 
       .who-mission {
@@ -569,14 +574,11 @@
         background: #d9eef1;
       }
 
-      .dna-icon svg {
+      .dna-icon img {
         width: 30px;
         height: 30px;
-        stroke: var(--gold);
-        fill: none;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+        object-fit: contain;
+        display: block;
       }
 
       .dna-card strong {
@@ -637,21 +639,10 @@
         margin-top: 14px;
       }
 
-      .bethlehem-mark-line {
-        width: 68px;
-        height: 4px;
-        border-radius: 999px;
-        background: var(--gold);
-      }
-
-      .bethlehem-mark svg {
-        width: 26px;
-        height: 26px;
-        stroke: var(--gold);
-        fill: none;
-        stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      .bethlehem-mark img {
+        display: block;
+        width: clamp(170px, 18vw, 250px);
+        height: auto;
       }
 
       .bethlehem-intro {
@@ -722,14 +713,11 @@
         background: #d9eef1;
       }
 
-      .bethlehem-icon-wrap svg {
+      .bethlehem-icon-wrap img {
         width: 28px;
         height: 28px;
-        stroke: var(--gold);
-        fill: none;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+        object-fit: contain;
+        display: block;
       }
 
       .bethlehem-image {
@@ -859,6 +847,204 @@
         line-height: 1.65;
       }
 
+      #discipleship h2::after {
+        display: none;
+      }
+
+      .discipleship-shell {
+        width: min(1200px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        gap: 34px;
+      }
+
+      .discipleship-header {
+        display: grid;
+        gap: 16px;
+        max-width: 760px;
+      }
+
+      .discipleship-label {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .discipleship-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 4.8vw, 4.9rem);
+        line-height: 0.94;
+        letter-spacing: -0.02em;
+      }
+
+      .discipleship-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .discipleship-mark img {
+        display: block;
+        width: clamp(170px, 18vw, 250px);
+        height: auto;
+      }
+
+      .discipleship-intro {
+        max-width: 660px;
+      }
+
+      .discipleship-pathway {
+        display: flex;
+        align-items: stretch;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .discipleship-step {
+        flex: 1 1 170px;
+        min-width: 170px;
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .discipleship-step-header {
+        display: grid;
+        gap: 10px;
+      }
+
+      .discipleship-icon {
+        width: 58px;
+        height: 58px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #d9eef1;
+      }
+
+      .discipleship-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .discipleship-number {
+        color: var(--gold);
+        font-family: var(--font-display);
+        font-size: 0.98rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+      }
+
+      .discipleship-step h3 {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.28rem;
+        line-height: 1.08;
+      }
+
+      .discipleship-subtitle {
+        color: #5e8a90;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+      }
+
+      .discipleship-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.62;
+      }
+
+      .discipleship-arrow {
+        flex: 0 0 30px;
+        align-self: center;
+        display: grid;
+        place-items: center;
+        color: var(--gold);
+      }
+
+      .discipleship-arrow svg {
+        width: 30px;
+        height: 14px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .discipleship-tools {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .discipleship-tool {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.08);
+        background: rgba(195, 229, 226, 0.22);
+      }
+
+      .discipleship-tool-inner {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .discipleship-tool-icon {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(0, 18, 84, 0.06);
+      }
+
+      .discipleship-tool-icon svg {
+        width: 26px;
+        height: 26px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .discipleship-tool h4 {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.08rem;
+        line-height: 1.12;
+      }
+
+      .discipleship-tool .tool-subtitle {
+        color: #5e8a90;
+        font-size: 0.86rem;
+        letter-spacing: 0.08em;
+        text-transform: none;
+      }
+
+      .discipleship-tool p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
       form {
         max-width: 620px;
         display: grid;
@@ -941,6 +1127,55 @@
         }
 
         .support-list {
+          grid-template-columns: 1fr;
+        }
+
+        .discipleship-shell {
+          width: min(1120px, calc(100% - 32px));
+          gap: 26px;
+        }
+
+        .discipleship-pathway {
+          flex-direction: column;
+          gap: 18px;
+          position: relative;
+          padding-left: 20px;
+        }
+
+        .discipleship-pathway::before {
+          content: "";
+          position: absolute;
+          left: 9px;
+          top: 6px;
+          bottom: 6px;
+          width: 2px;
+          background: var(--gold);
+          border-radius: 999px;
+        }
+
+        .discipleship-arrow {
+          display: none;
+        }
+
+        .discipleship-step {
+          min-width: 0;
+          position: relative;
+          padding-left: 18px;
+        }
+
+        .discipleship-step::before {
+          content: "";
+          position: absolute;
+          left: -2px;
+          top: 14px;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: var(--gold);
+          box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.92);
+        }
+
+        .discipleship-tools {
           grid-template-columns: 1fr;
         }
 
@@ -1176,66 +1411,42 @@
             <div class="dna-grid" aria-label="Church DNA">
               <article class="dna-card">
                 <span class="dna-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 4v16M5 11h14M7 8l5-4 5 4" />
-                  </svg>
+                  <img src="assets/icons/09_dna.svg" alt="">
                 </span>
                 <strong>Gospel-Centered</strong>
                 <p>The life, death, and resurrection of Jesus remain at the center of our preaching, worship, discipleship, and mission.</p>
               </article>
               <article class="dna-card">
                 <span class="dna-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 6h16v12H4z" />
-                    <path d="M8 6v12M12 6v12M16 6v12" />
-                    <path d="M4 10h16" />
-                  </svg>
+                  <img src="assets/icons/20_open_bible_heart.svg" alt="">
                 </span>
                 <strong>Biblically Faithful</strong>
                 <p>We trust the authority and sufficiency of Scripture and want God’s Word to shape everyday life.</p>
               </article>
               <article class="dna-card">
                 <span class="dna-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M7 10.5c0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 4-5 8.5-5 8.5S7 14.5 7 10.5z" />
-                    <path d="M9.5 11.5c1.2-1 3.8-1 5 0" />
-                    <path d="M7 20c1.8-2 3.4-3 5-3s3.2 1 5 3" />
-                  </svg>
+                  <img src="assets/icons/01_pray.svg" alt="">
                 </span>
                 <strong>Prayerfully Dependent</strong>
                 <p>We believe lasting spiritual fruit comes from God, so prayer shapes our decisions, relationships, gatherings, and mission.</p>
               </article>
               <article class="dna-card">
                 <span class="dna-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 12l8-7 8 7" />
-                    <path d="M6 10v9h12v-9" />
-                    <path d="M9 19v-4a3 3 0 0 1 6 0v4" />
-                    <path d="M10 14c1.2 0 2 .8 2 2 0-1.2.8-2 2-2" />
-                  </svg>
+                  <img src="assets/icons/11_belong_home_heart.svg" alt="">
                 </span>
                 <strong>Relationally Invested</strong>
                 <p>Discipleship happens through life together. We pursue hospitality, honest relationships, mutual care, and meaningful community.</p>
               </article>
               <article class="dna-card">
                 <span class="dna-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 12h10" />
-                    <path d="M11 8l5 4-5 4" />
-                    <path d="M15 6l5 6-5 6" />
-                  </svg>
+                  <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
                 </span>
                 <strong>Missionally Engaged</strong>
                 <p>We equip every believer to live as a missionary in their individual spheres of influence.</p>
               </article>
               <article class="dna-card">
                 <span class="dna-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 20V8" />
-                    <path d="M12 8c0-2.2-1.8-4-4-4v4c0 2.2 1.8 4 4 4" />
-                    <path d="M12 8c0-2.2 1.8-4 4-4v4c0 2.2-1.8 4-4 4" />
-                    <path d="M12 14c2 0 4 1.5 4 4h-8c0-2.5 2-4 4-4z" />
-                  </svg>
+                  <img src="assets/icons/13_multiply_disciple.svg" alt="">
                 </span>
                 <strong>Multiplication Focused</strong>
                 <p>We develop disciples who make disciples, leaders who develop leaders, and a church prepared to help plant more churches.</p>
@@ -1252,13 +1463,7 @@
               <p class="bethlehem-label">Why Bethlehem</p>
               <h2 id="bethlehem-title" class="bethlehem-title">A Strategic Starting Point for the Gospel</h2>
               <div class="bethlehem-mark" aria-hidden="true">
-                <span class="bethlehem-mark-line"></span>
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 20V10" />
-                  <path d="M9 12c0-3 1.5-5 3-5s3 2 3 5c0 1.8-1.3 3.7-3 5-1.7-1.3-3-3.2-3-5z" />
-                  <path d="M8 14c-1-1-2.3-1.7-4-2" />
-                  <path d="M16 14c1-1 2.3-1.7 4-2" />
-                </svg>
+                <img src="assets/icons/GoAlbany_tulip_divider.svg" alt="">
               </div>
             </div>
             <div class="bethlehem-intro">
@@ -1274,12 +1479,7 @@
           <div class="bethlehem-bottom" aria-label="Bethlehem highlights">
             <article class="bethlehem-card">
               <span class="bethlehem-icon-wrap" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M4 11.5L12 5l8 6.5" />
-                  <path d="M6.5 10.5V19h11V10.5" />
-                  <path d="M9 19v-4h6v4" />
-                  <path d="M9 14h6" />
-                </svg>
+                <img src="assets/icons/08_home.svg" alt="">
               </span>
               <span class="bethlehem-card-number">01</span>
               <h3>A Place to Plant Deeply</h3>
@@ -1288,12 +1488,7 @@
 
             <article class="bethlehem-card">
               <span class="bethlehem-icon-wrap" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M5 18c1.6-3 4.1-4.5 7-4.5s5.4 1.5 7 4.5" />
-                  <path d="M7.5 11.5a2.5 2.5 0 1 0 0-.1" />
-                  <path d="M16.5 11.5a2.5 2.5 0 1 0 0-.1" />
-                  <path d="M3.5 18h17" />
-                </svg>
+                <img src="assets/icons/05_people_outline.svg" alt="">
               </span>
               <span class="bethlehem-card-number">02</span>
               <h3>A Community with Opportunity</h3>
@@ -1302,11 +1497,7 @@
 
             <article class="bethlehem-card">
               <span class="bethlehem-icon-wrap" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 3v18" />
-                  <path d="M12 3l4 4-4 1.8-4-1.8z" />
-                  <path d="M12 21l4-6-4-2-4 2z" />
-                </svg>
+                <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
               </span>
               <span class="bethlehem-card-number">03</span>
               <h3>A Long-Term Opportunity</h3>
@@ -1321,32 +1512,189 @@
       </section>
 
       <section id="discipleship" aria-labelledby="discipleship-title">
-        <div class="section-grid">
-          <h2 id="discipleship-title">How disciples grow</h2>
-          <div class="section-copy">
-            <p>
-              Discipleship is more than information or attendance. It is a clear
-              path that helps people move from first connection to membership,
-              active formation, leadership, and multiplication.
-            </p>
-            <div class="path-grid">
-              <article class="path-card">
-                <strong>Rooted</strong>
-                <p>A six-week introduction to the gospel, God, Scripture, mission, and church life.</p>
-              </article>
-              <article class="path-card">
-                <strong>Disciple-making relationships</strong>
-                <p>Small groups of two or three people meeting regularly for life-on-life discipleship.</p>
-              </article>
-              <article class="path-card">
-                <strong>Membership</strong>
-                <p>A growing church body where people are known, equipped, and committed to one another.</p>
-              </article>
-              <article class="path-card">
-                <strong>Leadership and sending</strong>
-                <p>Developing leaders who can serve, equip others, and help plant additional churches.</p>
-              </article>
+        <div class="discipleship-shell">
+          <div class="discipleship-header">
+            <p class="discipleship-label">Every disciple a disciplemaker</p>
+            <h2 id="discipleship-title" class="discipleship-title">A Clear Path from<br>Connection to Multiplication</h2>
+            <div class="discipleship-mark" aria-hidden="true">
+              <img src="assets/icons/GoAlbany_tulip_divider.svg" alt="">
             </div>
+            <div class="section-copy discipleship-intro">
+              <p>
+                Discipleship is more than information or attendance. We want to help people trust Jesus, obey Jesus, become like Jesus, and help others follow Jesus.
+              </p>
+            </div>
+          </div>
+
+          <div class="discipleship-pathway" aria-label="Discipleship pathway">
+            <article class="discipleship-step">
+              <div class="discipleship-step-header">
+                <span class="discipleship-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="8" cy="8" r="2.4" />
+                    <circle cx="16" cy="8" r="2.4" />
+                    <path d="M4.8 18c1.2-2.6 3.2-4 5.2-4s4 1.4 5.2 4" />
+                    <path d="M13.2 18c1.1-1.9 2.6-2.8 4.2-2.8" />
+                    <path d="M17.4 15.2l1.8 1.8-1.8 1.8" />
+                  </svg>
+                </span>
+                <span class="discipleship-number">01</span>
+              </div>
+              <h3>Connect</h3>
+              <div class="discipleship-subtitle">Visitor &rarr; Attender</div>
+              <p>Meet the church, build relationships, and begin returning.</p>
+            </article>
+
+            <span class="discipleship-arrow" aria-hidden="true">
+              <svg viewBox="0 0 36 14">
+                <path d="M2 7h28" />
+                <path d="M24 3l6 4-6 4" />
+              </svg>
+            </span>
+
+            <article class="discipleship-step">
+              <div class="discipleship-step-header">
+                <span class="discipleship-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 11.5L12 5l8 6.5" />
+                    <path d="M6.5 10.5V19h11V10.5" />
+                    <path d="M9 19v-4h6v4" />
+                    <path d="M12 13.8c-1-.9-2.6-.8-3.2.3-.5 1 .1 2.4 3.2 3.8 3.1-1.4 3.7-2.8 3.2-3.8-.6-1.1-2.2-1.2-3.2-.3z" />
+                  </svg>
+                </span>
+                <span class="discipleship-number">02</span>
+              </div>
+              <h3>Belong</h3>
+              <div class="discipleship-subtitle">Member</div>
+              <p>Complete Rooted and join the church body through membership.</p>
+            </article>
+
+            <span class="discipleship-arrow" aria-hidden="true">
+              <svg viewBox="0 0 36 14">
+                <path d="M2 7h28" />
+                <path d="M24 3l6 4-6 4" />
+              </svg>
+            </span>
+
+            <article class="discipleship-step">
+              <div class="discipleship-step-header">
+                <span class="discipleship-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 19V10" />
+                    <path d="M12 10c-2.4 0-4.3-1.9-4.3-4.3 3.2 0 5.1 1.5 5.8 3.9" />
+                    <path d="M12 10c2.4 0 4.3-1.9 4.3-4.3-3.2 0-5.1 1.5-5.8 3.9" />
+                    <path d="M12 12c0-1.1.7-2 1.8-2" />
+                    <path d="M12 12c0-1.1-.7-2-1.8-2" />
+                  </svg>
+                </span>
+                <span class="discipleship-number">03</span>
+              </div>
+              <h3>Grow</h3>
+              <div class="discipleship-subtitle">Disciple</div>
+              <p>Enter a DMR and grow through prayer, Scripture, obedience, and life together.</p>
+            </article>
+
+            <span class="discipleship-arrow" aria-hidden="true">
+              <svg viewBox="0 0 36 14">
+                <path d="M2 7h28" />
+                <path d="M24 3l6 4-6 4" />
+              </svg>
+            </span>
+
+            <article class="discipleship-step">
+              <div class="discipleship-step-header">
+                <span class="discipleship-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="8" cy="8" r="2.4" />
+                    <circle cx="15.8" cy="8" r="2.4" />
+                    <path d="M4.8 18c1.2-2.6 3.2-4 5.2-4s4 1.4 5.2 4" />
+                    <path d="M13.4 15.8l4.4-4.4" />
+                    <path d="M14.9 11.4h3.3v3.3" />
+                  </svg>
+                </span>
+                <span class="discipleship-number">04</span>
+              </div>
+              <h3>Multiply</h3>
+              <div class="discipleship-subtitle">Disciplemaker</div>
+              <p>Help someone else follow Jesus through a Disciple-Making Relationship.</p>
+            </article>
+
+            <span class="discipleship-arrow" aria-hidden="true">
+              <svg viewBox="0 0 36 14">
+                <path d="M2 7h28" />
+                <path d="M24 3l6 4-6 4" />
+              </svg>
+            </span>
+
+            <article class="discipleship-step">
+              <div class="discipleship-step-header">
+                <span class="discipleship-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 12.5l14.5-5.5-5.5 14.5-2.3-5.2-6.7-3.8z" />
+                    <path d="M11.2 14.3l3.8-4.8" />
+                    <path d="M15 9.5l1.8-1.8" />
+                  </svg>
+                </span>
+                <span class="discipleship-number">05</span>
+              </div>
+              <h3>Lead &amp; Send</h3>
+              <div class="discipleship-subtitle">Leader</div>
+              <p>Serve, lead, develop others, and pursue calling as God leads.</p>
+            </article>
+          </div>
+
+          <div class="discipleship-tools" aria-label="Supporting discipleship tools">
+            <article class="discipleship-tool">
+              <div class="discipleship-tool-inner">
+                <span class="discipleship-tool-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 20V11" />
+                    <path d="M12 11c-2.2 0-4-1.8-4-4 3 0 4.8 1.3 5.5 3.7" />
+                    <path d="M12 11c2.2 0 4-1.8 4-4-3 0-4.8 1.3-5.5 3.7" />
+                    <path d="M8.5 20c1.1-2 2.5-3 3.5-3s2.4 1 3.5 3" />
+                    <path d="M9.8 15h4.4" />
+                  </svg>
+                </span>
+                <h4>Rooted</h4>
+                <p>A six-week introduction to the gospel, God, Scripture, discipleship, mission, and church life.</p>
+              </div>
+            </article>
+
+            <article class="discipleship-tool">
+              <div class="discipleship-tool-inner">
+                <span class="discipleship-tool-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="8" cy="8" r="2.2" />
+                    <circle cx="16" cy="8" r="2.2" />
+                    <circle cx="12" cy="5.5" r="2.2" />
+                    <path d="M4.8 18c1-2.2 2.8-3.5 5.2-3.5s4.2 1.3 5.2 3.5" />
+                    <path d="M10.6 18c1-1.8 2.3-2.8 3.4-2.8s2.4 1 3.4 2.8" />
+                  </svg>
+                </span>
+                <h4>DMR</h4>
+                <div class="tool-subtitle">Disciple-Making Relationships</div>
+                <p>Two or three people meeting regularly for life-on-life discipleship.</p>
+              </div>
+            </article>
+
+            <article class="discipleship-tool">
+              <div class="discipleship-tool-inner">
+                <span class="discipleship-tool-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M6 6l2.5 4.5" />
+                    <path d="M9 6l2.5 4.5" />
+                    <path d="M12 6l2.5 4.5" />
+                    <path d="M15 6l2.5 4.5" />
+                    <path d="M7.3 11.8l3.2 5.7" />
+                    <path d="M11 11.8l3.2 5.7" />
+                    <path d="M14.7 11.8l3.2 5.7" />
+                  </svg>
+                </span>
+                <h4>M.A.W.L.</h4>
+                <div class="tool-subtitle">Model. Assist. Watch. Leave.</div>
+                <p>A simple process for training people and releasing them to train others.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
