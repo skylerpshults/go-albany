@@ -495,8 +495,17 @@
         background: var(--parchment);
       }
 
+      #bethlehem {
+        background: var(--ivory);
+      }
+
       #discipleship {
         background: var(--parchment);
+      }
+
+      #who-we-are .section-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .who-label {
@@ -507,10 +516,6 @@
         color: var(--gold);
       }
 
-      .who-label::after {
-        display: none;
-      }
-
       .who-content {
         gap: 20px;
       }
@@ -519,9 +524,9 @@
         margin: 0;
         color: var(--ink);
         font-family: var(--font-display);
-        font-size: clamp(2.1rem, 3.2vw, 3.6rem);
-        line-height: 0.95;
-        white-space: nowrap;
+        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+        line-height: 0.94;
+        white-space: normal;
       }
 
       .who-mission {
@@ -547,11 +552,6 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
         margin-top: 8px;
-      }
-
-      #who-we-are .section-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
       }
 
       .dna-card {
@@ -611,7 +611,7 @@
 
       .bethlehem-label {
         margin: 0 0 10px;
-        color: var(--terracotta);
+        color: var(--gold);
         font-family: var(--font-body);
         font-size: 0.9rem;
         font-weight: 800;
@@ -623,26 +623,9 @@
         margin: 0;
         color: var(--ink);
         font-family: var(--font-display);
-        font-size: clamp(2.7rem, 4.9vw, 4.8rem);
-        line-height: 0.95;
+        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+        line-height: 0.94;
         letter-spacing: -0.02em;
-      }
-
-      .bethlehem-title::after {
-        display: none;
-      }
-
-      .bethlehem-mark {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 14px;
-      }
-
-      .bethlehem-mark img {
-        display: block;
-        width: clamp(170px, 18vw, 250px);
-        height: auto;
       }
 
       .bethlehem-intro {
@@ -732,18 +715,8 @@
         object-position: center;
       }
 
-      #support {
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        background:
-          linear-gradient(180deg, rgba(195, 229, 226, 0.35), rgba(252, 196, 0, 0.08)),
-          var(--ivory);
-      }
-
       #newsletter {
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(195, 229, 226, 0.25)),
-          var(--charcoal);
+        background: var(--parchment);
         color: var(--text);
       }
 
@@ -751,19 +724,9 @@
         position: relative;
         margin: 0;
         color: var(--ink);
-        font-size: clamp(2.25rem, 4vw, 4rem);
-        line-height: 0.95;
+        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+        line-height: 0.94;
         letter-spacing: 0;
-      }
-
-      h2::after {
-        content: "";
-        display: block;
-        width: 56px;
-        height: 5px;
-        margin-top: 18px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--terracotta), var(--gold));
       }
 
       #newsletter h2 {
@@ -786,9 +749,118 @@
         color: var(--muted);
       }
 
+      .newsletter-shell {
+        width: min(1280px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        gap: 24px;
+      }
+
+      .newsletter-top {
+        display: grid;
+        grid-template-columns: minmax(480px, 1.05fr) minmax(360px, 0.95fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .newsletter-header {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .newsletter-label {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .newsletter-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+        line-height: 0.94;
+        letter-spacing: -0.02em;
+      }
+
+      .newsletter-intro {
+        padding-top: 6px;
+      }
+
+      .newsletter-forms {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .newsletter-panel {
+        min-width: 0;
+        padding: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.1);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 12px 28px rgba(0, 18, 84, 0.05);
+      }
+
+      .newsletter-panel .ctct-inline-form,
+      .newsletter-panel .calendly-inline-widget {
+        width: 100%;
+      }
+
+      #launch-point {
+        background: var(--parchment);
+      }
+
+      .support-shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        gap: 28px;
+      }
+
+      .support-top {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      #launch-point .section-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .support-label {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .support-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+        line-height: 0.94;
+        letter-spacing: -0.02em;
+      }
+
+      .support-intro,
+      .funding-intro {
+        max-width: 860px;
+      }
+
       .support-list {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 12px;
         margin: 8px 0 0;
         padding: 0;
@@ -796,59 +868,369 @@
       }
 
       .support-list li {
-        min-height: 132px;
-        padding: 18px;
+        min-height: 180px;
+        padding: 20px;
         border: 1px solid rgba(0, 18, 84, 0.1);
-        border-top: 5px solid #c3e5e2;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.9);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.92);
         color: var(--text);
         line-height: 1.55;
         box-shadow: 0 14px 34px rgba(0, 18, 84, 0.06);
       }
 
-      .support-list li:nth-child(2) {
-        border-top-color: var(--terracotta);
-      }
-
-      .support-list li:nth-child(3) {
-        border-top-color: var(--gold);
-      }
-
-      .value-grid,
-      .path-grid {
+      .support-card-icon {
+        width: 58px;
+        height: 58px;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        place-items: center;
+        border-radius: 50%;
+        background: #d9eef1;
+      }
+
+      .support-card-icon img {
+        width: 32px;
+        height: 32px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .support-list h3 {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        line-height: 1.08;
+      }
+
+      .support-list p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.62;
+      }
+
+      .support-card-header {
+        display: grid;
         gap: 12px;
+        justify-items: start;
+      }
+
+      .funding-progress {
+        display: grid;
+        gap: 10px;
+        max-width: 860px;
+        margin-top: 8px;
+        padding: 18px 20px;
+        border-radius: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.1);
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .funding-progress-label {
+        margin: 0;
+        color: var(--terracotta);
+        font-size: 0.88rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .funding-progress-main {
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+        line-height: 1;
+      }
+
+      .funding-progress-sub {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .funding-progress-bar {
+        width: 100%;
+        height: 12px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: rgba(0, 18, 84, 0.08);
+      }
+
+      .funding-progress-bar span {
+        display: block;
+        width: var(--funding-progress, 62%);
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      }
+
+      .funding-charts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
         margin-top: 8px;
       }
 
-      .value-card,
-      .path-card {
-        padding: 18px;
+      .funding-chart {
+        display: grid;
+        gap: 14px;
+        padding: 20px;
+        border-radius: 18px;
         border: 1px solid rgba(0, 18, 84, 0.1);
-        border-radius: 14px;
         background: rgba(255, 255, 255, 0.94);
         box-shadow: 0 14px 34px rgba(0, 18, 84, 0.06);
       }
 
-      .value-card strong,
-      .path-card strong {
-        display: block;
-        margin-bottom: 10px;
+      .funding-chart h3 {
+        margin: 0;
         color: var(--ink);
-        font-size: 1.02rem;
+        font-family: var(--font-display);
+        font-size: 1.34rem;
+        line-height: 1.08;
       }
 
-      .value-card p,
-      .path-card p {
+      .funding-chart ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .funding-chart li {
+        display: grid;
+        gap: 4px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(195, 229, 226, 0.24);
         color: var(--muted);
-        font-size: 0.98rem;
-        line-height: 1.65;
+        line-height: 1.45;
       }
 
-      #discipleship h2::after {
-        display: none;
+      .funding-transition-list .funding-transition-row {
+        gap: 8px;
+      }
+
+      .funding-transition-row .funding-transition-meta {
+        display: grid;
+        gap: 4px;
+      }
+
+      .funding-transition-bar {
+        display: grid;
+        grid-template-columns: minmax(0, var(--partner-share, 50%)) minmax(0, calc(100% - var(--partner-share, 50%)));
+        min-height: 16px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(0, 18, 84, 0.08);
+      }
+
+      .funding-transition-bar span {
+        display: block;
+        height: 100%;
+      }
+
+      .funding-transition-bar .partner {
+        background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      }
+
+      .funding-transition-bar .congregational {
+        background: rgba(195, 229, 226, 0.95);
+      }
+
+      .funding-chart li strong {
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.03rem;
+      }
+
+      .funding-chart li span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .funding-chart-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.58;
+      }
+
+      .giving-note {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        max-width: 860px;
+        margin: 8px 0 0;
+        padding: 14px 16px;
+        border: 1px solid rgba(0, 18, 84, 0.08);
+        border-radius: 16px;
+        background: rgba(195, 229, 226, 0.24);
+      }
+
+      .giving-note-icon {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .giving-note-icon img {
+        width: 20px;
+        height: 20px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .giving-note p {
+        margin: 0;
+        color: var(--ink);
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .giving-note strong {
+        font-weight: 700;
+      }
+
+      #partners {
+        background: var(--ivory);
+      }
+
+      .partners-shell {
+        width: min(1280px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        gap: 26px;
+      }
+
+      .partners-top {
+        display: grid;
+        grid-template-columns: minmax(420px, 1fr) minmax(360px, 0.95fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .partners-label {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .partners-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+        line-height: 0.94;
+        letter-spacing: -0.02em;
+      }
+
+      .partners-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .partners-mark::before,
+      .partners-mark::after {
+        content: "";
+        display: block;
+        width: 78px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), var(--terracotta));
+      }
+
+      .partners-mark span {
+        position: relative;
+        display: block;
+        width: 18px;
+        height: 22px;
+      }
+
+      .partners-mark span::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 2px;
+        width: 2px;
+        height: 16px;
+        transform: translateX(-50%);
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--gold), var(--terracotta));
+      }
+
+      .partners-mark span::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        transform: translateX(-50%) rotate(45deg);
+        border-top: 2px solid var(--gold);
+        border-right: 2px solid var(--gold);
+        border-radius: 2px;
+      }
+
+      .partners-copy {
+        padding-top: 4px;
+      }
+
+      .partner-logos {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .partner-logo {
+        min-height: 150px;
+        display: grid;
+        gap: 10px;
+        align-items: center;
+        justify-items: center;
+        padding: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.08);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 10px 24px rgba(0, 18, 84, 0.04);
+        text-align: center;
+      }
+
+      .partner-logo img {
+        width: 100%;
+        max-width: 230px;
+        max-height: 74px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .partner-logo.stacked img {
+        max-width: 120px;
+        max-height: 120px;
+      }
+
+      .partner-logo-label {
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        line-height: 1.1;
+      }
+
+      .partner-logo-sub {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.4;
       }
 
       .discipleship-shell {
@@ -877,21 +1259,9 @@
         margin: 0;
         color: var(--ink);
         font-family: var(--font-display);
-        font-size: clamp(2.6rem, 4.8vw, 4.9rem);
+        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
         line-height: 0.94;
         letter-spacing: -0.02em;
-      }
-
-      .discipleship-mark {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .discipleship-mark img {
-        display: block;
-        width: clamp(170px, 18vw, 250px);
-        height: auto;
       }
 
       .discipleship-intro {
@@ -909,32 +1279,36 @@
         flex: 1 1 170px;
         min-width: 170px;
         display: grid;
-        gap: 10px;
+        gap: 12px;
         align-content: start;
+        padding: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.1);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 14px 34px rgba(0, 18, 84, 0.06);
       }
 
       .discipleship-step-header {
         display: grid;
         gap: 10px;
+        justify-items: start;
       }
 
       .discipleship-icon {
-        width: 58px;
-        height: 58px;
+        width: 76px;
+        height: 76px;
         display: grid;
         place-items: center;
         border-radius: 50%;
         background: #d9eef1;
+        flex: 0 0 76px;
       }
 
-      .discipleship-icon svg {
-        width: 28px;
-        height: 28px;
-        stroke: var(--gold);
-        fill: none;
-        stroke-width: 1.9;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      .discipleship-icon img {
+        width: 48px;
+        height: 48px;
+        display: block;
+        object-fit: contain;
       }
 
       .discipleship-number {
@@ -942,7 +1316,7 @@
         font-family: var(--font-display);
         font-size: 0.98rem;
         font-weight: 700;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.08em;
       }
 
       .discipleship-step h3 {
@@ -1004,23 +1378,21 @@
       }
 
       .discipleship-tool-icon {
-        width: 52px;
-        height: 52px;
+        width: 58px;
+        height: 58px;
         display: grid;
         place-items: center;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.92);
         border: 1px solid rgba(0, 18, 84, 0.06);
+        flex: 0 0 58px;
       }
 
-      .discipleship-tool-icon svg {
-        width: 26px;
-        height: 26px;
-        stroke: var(--gold);
-        fill: none;
-        stroke-width: 1.9;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      .discipleship-tool-icon img {
+        width: 34px;
+        height: 34px;
+        display: block;
+        object-fit: contain;
       }
 
       .discipleship-tool h4 {
@@ -1106,6 +1478,10 @@
         align-items: end;
       }
 
+      .who-title {
+        white-space: normal;
+      }
+
       footer {
         padding: 24px 0 36px;
         background: #001254;
@@ -1120,14 +1496,39 @@
           gap: 36px;
         }
 
-        .panel-grid,
-        .value-grid,
-        .path-grid {
+        .panel-grid {
           grid-template-columns: 1fr;
         }
 
         .support-list {
           grid-template-columns: 1fr;
+        }
+
+        .funding-charts {
+          grid-template-columns: 1fr;
+        }
+
+        .partner-logos {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .support-top {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .newsletter-top {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .newsletter-forms {
+          grid-template-columns: 1fr;
+        }
+
+        .partners-top {
+          grid-template-columns: 1fr;
+          gap: 24px;
         }
 
         .discipleship-shell {
@@ -1379,7 +1780,6 @@
               <div class="media-float placeholder-3"><img src="assets/pictures/AdobeStock_545484295.jpeg" alt="Mountain lake landscape at sunrise"></div>
               <div class="media-float placeholder-4"><img src="assets/pictures/AdobeStock_153544781.jpeg" alt="Waterfall landscape in upstate New York"></div>
               <div class="video-frame">
-                <div class="video-caption">Watch the story</div>
                 <iframe
                   src="https://www.youtube.com/embed/DwA9maGY-XU?rel=0&playsinline=1"
                   title="Go Albany introductory video"
@@ -1401,7 +1801,7 @@
         <div class="section-grid">
           <h2 id="who-title" class="who-label">Who we are</h2>
           <div class="section-copy who-content">
-            <h3 class="who-title">A Gospel-Centered, Disciple-Making Church</h3>
+            <h2 class="who-title">A Gospel-Centered, Disciple-Making Church</h2>
             <div class="who-mission">
               Our aim is to center our whole lives on Jesus as we make disciples and multiply churches.
             </div>
@@ -1462,9 +1862,6 @@
             <div>
               <p class="bethlehem-label">Why Bethlehem</p>
               <h2 id="bethlehem-title" class="bethlehem-title">A Strategic Starting Point for the Gospel</h2>
-              <div class="bethlehem-mark" aria-hidden="true">
-                <img src="assets/icons/GoAlbany_tulip_divider.svg" alt="">
-              </div>
             </div>
             <div class="bethlehem-intro">
               <p>
@@ -1516,9 +1913,6 @@
           <div class="discipleship-header">
             <p class="discipleship-label">Every disciple a disciplemaker</p>
             <h2 id="discipleship-title" class="discipleship-title">A Clear Path from<br>Connection to Multiplication</h2>
-            <div class="discipleship-mark" aria-hidden="true">
-              <img src="assets/icons/GoAlbany_tulip_divider.svg" alt="">
-            </div>
             <div class="section-copy discipleship-intro">
               <p>
                 Discipleship is more than information or attendance. We want to help people trust Jesus, obey Jesus, become like Jesus, and help others follow Jesus.
@@ -1530,15 +1924,9 @@
             <article class="discipleship-step">
               <div class="discipleship-step-header">
                 <span class="discipleship-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="8" cy="8" r="2.4" />
-                    <circle cx="16" cy="8" r="2.4" />
-                    <path d="M4.8 18c1.2-2.6 3.2-4 5.2-4s4 1.4 5.2 4" />
-                    <path d="M13.2 18c1.1-1.9 2.6-2.8 4.2-2.8" />
-                    <path d="M17.4 15.2l1.8 1.8-1.8 1.8" />
-                  </svg>
+                  <img src="assets/icons/10_connect_people.svg" alt="">
                 </span>
-                <span class="discipleship-number">01</span>
+                <span class="discipleship-number">1</span>
               </div>
               <h3>Connect</h3>
               <div class="discipleship-subtitle">Visitor &rarr; Attender</div>
@@ -1555,14 +1943,9 @@
             <article class="discipleship-step">
               <div class="discipleship-step-header">
                 <span class="discipleship-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 11.5L12 5l8 6.5" />
-                    <path d="M6.5 10.5V19h11V10.5" />
-                    <path d="M9 19v-4h6v4" />
-                    <path d="M12 13.8c-1-.9-2.6-.8-3.2.3-.5 1 .1 2.4 3.2 3.8 3.1-1.4 3.7-2.8 3.2-3.8-.6-1.1-2.2-1.2-3.2-.3z" />
-                  </svg>
+                  <img src="assets/icons/11_belong_home_heart.svg" alt="">
                 </span>
-                <span class="discipleship-number">02</span>
+                <span class="discipleship-number">2</span>
               </div>
               <h3>Belong</h3>
               <div class="discipleship-subtitle">Member</div>
@@ -1579,15 +1962,9 @@
             <article class="discipleship-step">
               <div class="discipleship-step-header">
                 <span class="discipleship-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 19V10" />
-                    <path d="M12 10c-2.4 0-4.3-1.9-4.3-4.3 3.2 0 5.1 1.5 5.8 3.9" />
-                    <path d="M12 10c2.4 0 4.3-1.9 4.3-4.3-3.2 0-5.1 1.5-5.8 3.9" />
-                    <path d="M12 12c0-1.1.7-2 1.8-2" />
-                    <path d="M12 12c0-1.1-.7-2-1.8-2" />
-                  </svg>
+                  <img src="assets/icons/12_grow_sprout.svg" alt="">
                 </span>
-                <span class="discipleship-number">03</span>
+                <span class="discipleship-number">3</span>
               </div>
               <h3>Grow</h3>
               <div class="discipleship-subtitle">Disciple</div>
@@ -1604,15 +1981,9 @@
             <article class="discipleship-step">
               <div class="discipleship-step-header">
                 <span class="discipleship-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="8" cy="8" r="2.4" />
-                    <circle cx="15.8" cy="8" r="2.4" />
-                    <path d="M4.8 18c1.2-2.6 3.2-4 5.2-4s4 1.4 5.2 4" />
-                    <path d="M13.4 15.8l4.4-4.4" />
-                    <path d="M14.9 11.4h3.3v3.3" />
-                  </svg>
+                  <img src="assets/icons/13_multiply_disciple.svg" alt="">
                 </span>
-                <span class="discipleship-number">04</span>
+                <span class="discipleship-number">4</span>
               </div>
               <h3>Multiply</h3>
               <div class="discipleship-subtitle">Disciplemaker</div>
@@ -1629,13 +2000,9 @@
             <article class="discipleship-step">
               <div class="discipleship-step-header">
                 <span class="discipleship-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M4 12.5l14.5-5.5-5.5 14.5-2.3-5.2-6.7-3.8z" />
-                    <path d="M11.2 14.3l3.8-4.8" />
-                    <path d="M15 9.5l1.8-1.8" />
-                  </svg>
+                  <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
                 </span>
-                <span class="discipleship-number">05</span>
+                <span class="discipleship-number">5</span>
               </div>
               <h3>Lead &amp; Send</h3>
               <div class="discipleship-subtitle">Leader</div>
@@ -1647,13 +2014,7 @@
             <article class="discipleship-tool">
               <div class="discipleship-tool-inner">
                 <span class="discipleship-tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 20V11" />
-                    <path d="M12 11c-2.2 0-4-1.8-4-4 3 0 4.8 1.3 5.5 3.7" />
-                    <path d="M12 11c2.2 0 4-1.8 4-4-3 0-4.8 1.3-5.5 3.7" />
-                    <path d="M8.5 20c1.1-2 2.5-3 3.5-3s2.4 1 3.5 3" />
-                    <path d="M9.8 15h4.4" />
-                  </svg>
+                  <img src="assets/icons/15_rooted_tree.svg" alt="">
                 </span>
                 <h4>Rooted</h4>
                 <p>A six-week introduction to the gospel, God, Scripture, discipleship, mission, and church life.</p>
@@ -1663,13 +2024,7 @@
             <article class="discipleship-tool">
               <div class="discipleship-tool-inner">
                 <span class="discipleship-tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="8" cy="8" r="2.2" />
-                    <circle cx="16" cy="8" r="2.2" />
-                    <circle cx="12" cy="5.5" r="2.2" />
-                    <path d="M4.8 18c1-2.2 2.8-3.5 5.2-3.5s4.2 1.3 5.2 3.5" />
-                    <path d="M10.6 18c1-1.8 2.3-2.8 3.4-2.8s2.4 1 3.4 2.8" />
-                  </svg>
+                  <img src="assets/icons/16_dmr_group.svg" alt="">
                 </span>
                 <h4>DMR</h4>
                 <div class="tool-subtitle">Disciple-Making Relationships</div>
@@ -1680,15 +2035,7 @@
             <article class="discipleship-tool">
               <div class="discipleship-tool-inner">
                 <span class="discipleship-tool-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M6 6l2.5 4.5" />
-                    <path d="M9 6l2.5 4.5" />
-                    <path d="M12 6l2.5 4.5" />
-                    <path d="M15 6l2.5 4.5" />
-                    <path d="M7.3 11.8l3.2 5.7" />
-                    <path d="M11 11.8l3.2 5.7" />
-                    <path d="M14.7 11.8l3.2 5.7" />
-                  </svg>
+                  <img src="assets/icons/17_mawl_footsteps.svg" alt="">
                 </span>
                 <h4>M.A.W.L.</h4>
                 <div class="tool-subtitle">Model. Assist. Watch. Leave.</div>
@@ -1700,22 +2047,68 @@
       </section>
 
       <section id="support" aria-labelledby="support-title">
-        <div class="section-grid">
-          <h2 id="support-title">Join the Mission</h2>
+        <div class="support-shell">
+          <div class="support-top">
+            <div>
+              <p class="support-label">PARTNER WITH US</p>
+              <h2 id="support-title" class="support-title">Together for<br>the Gospel</h2>
+            </div>
+            <div class="section-copy">
+              <p class="support-intro">
+                We are inviting churches, families, and individual partners to come alongside Go Albany in a meaningful way. This is more than support for a project. It is an opportunity to help establish a healthy church that can serve the Capital Region for years to come, make disciples, develop leaders, and help plant more churches in the future.
+              </p>
+            </div>
+          </div>
           <div class="section-copy">
-            <p>
-              We are inviting churches and individuals to come alongside us as true
-              ministry partners, helping establish a healthy church with a long-term
-              presence in the Capital Region.
-            </p>
             <ul class="support-list">
-              <li>Pray for our family, for the people of Albany, and for doors to open for gospel relationships.</li>
-              <li>Share our story with others who may want to help build the network of partners around this work.</li>
-              <li>Give financially to help provide the foundation for hospitality, gatherings, and long-term ministry.</li>
+              <li>
+                <div class="support-card-header">
+                  <span class="support-card-icon" aria-hidden="true">
+                    <img src="assets/icons/01_pray.svg" alt="">
+                  </span>
+                  <h3>Pray</h3>
+                </div>
+                <p>Pray for our family, for the people of Albany, and for God to open doors for gospel relationships. Pray that He would form a healthy core team, give wisdom and endurance, and establish a church that makes disciples.</p>
+              </li>
+              <li>
+                <div class="support-card-header">
+                  <span class="support-card-icon" aria-hidden="true">
+                    <img src="assets/icons/02_give.svg" alt="">
+                  </span>
+                  <h3>Give</h3>
+                </div>
+                <p>Give financially to help lay the foundation for long-term ministry. Your generosity will help make room for hospitality, community presence, gatherings, and the kind of healthy church life that can endure and multiply.</p>
+              </li>
+              <li>
+                <div class="support-card-header">
+                  <span class="support-card-icon" aria-hidden="true">
+                    <img src="assets/icons/03_go.svg" alt="">
+                  </span>
+                  <h3>Go</h3>
+                </div>
+                <p>Consider how you might personally step into the work. Some may help by visiting, serving, sending a team, or exploring whether God may be calling them to be part of the core team in the Capital Region.</p>
+              </li>
+              <li>
+                <div class="support-card-header">
+                  <span class="support-card-icon" aria-hidden="true">
+                    <img src="assets/icons/04_connect.svg" alt="">
+                  </span>
+                  <h3>Connect</h3>
+                </div>
+                <p>Help us build the network of people and churches who can strengthen this work. Share our story, make introductions, and help connect us with partners who may want to pray, give, send, or go.</p>
+              </li>
             </ul>
+            <div class="giving-note">
+              <span class="giving-note-icon" aria-hidden="true">
+                <img src="assets/icons/06_money.svg" alt="">
+              </span>
+              <p>
+                For added accountability, Giving to Go Albany is currently processed through Cross Point Fellowship, which is overseeing and administering our finances. When giving, please be sure to <strong>designate your gift to “Go Albany”</strong> so that it is directed to this ministry.
+              </p>
+            </div>
             <div class="actions">
-              <a class="button" href="mailto:goalbanynewyork@gmail.com">Get in touch</a>
-              <a class="button secondary" href="https://giving.myamplify.io//app/giving/crosspoint" target="_blank" rel="noopener noreferrer">Give here</a>
+              <a class="button" href="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" target="_blank" rel="noopener noreferrer">Schedule a Conversation</a>
+              <a class="button secondary" href="https://giving.myamplify.io//app/giving/crosspoint" target="_blank" rel="noopener noreferrer">Give to Go Albany</a>
             </div>
           </div>
         </div>
@@ -1723,51 +2116,137 @@
 
       <section id="launch-point" aria-labelledby="launch-point-title">
         <div class="section-grid">
-          <h2 id="launch-point-title">Launch point</h2>
           <div class="section-copy">
-            <article class="panel-card">
-              <p class="panel-label">Bethlehem, New York</p>
-              <h3>Close to Albany, rooted for the long term</h3>
-              <p>
-                Bethlehem gives us a strategic entry point close to Albany, where we
-                can build real relationships, serve the community, and establish a
-                lasting local presence.
-              </p>
-            </article>
+            <h2 id="launch-point-title">What Your Partnership Will Help Build</h2>
+            <p class="funding-intro">
+              Our goal is not simply to fund a launch. We are seeking to establish a healthy church with lasting roots in the Capital Region, while also setting aside resources that can help future church planting beyond the first work.
+            </p>
 
-            <div class="panel-grid" aria-label="Prospectus highlights">
-              <div class="stat-card">
-                <strong>135,500+</strong>
-                <span>people within a fifteen-minute drive of Bethlehem</span>
-              </div>
-              <div class="stat-card">
-                <strong>20</strong>
-                <span>partner churches we are praying for in the first three years</span>
-              </div>
-              <div class="stat-card">
-                <strong>6 weeks</strong>
-                <span>for Rooted, the introduction to gospel, Scripture, mission, and church life</span>
-              </div>
+            <div class="funding-progress" style="--funding-progress: 43%;">
+              <p class="funding-progress-label">Pledged So Far</p>
+              <div class="funding-progress-main">$130,000 of $300,000</div>
+              <p class="funding-progress-sub">
+                Help establish the first church and seed the next.
+              </p>
+              <div class="funding-progress-bar" aria-hidden="true"><span></span></div>
+            </div>
+
+            <div class="funding-charts" aria-label="Partnership funding charts">
+              <article class="funding-chart">
+                <h3>Funding the First Church &mdash; Seeding the Next</h3>
+                <ul>
+                  <li><strong>$225,000</strong><span>Initial Plant Partner Support</span></li>
+                  <li><strong>$75,000</strong><span>Future Plant Seed Fund</span></li>
+                  <li><strong>$300,000</strong><span>Partner Giving Goal</span></li>
+                </ul>
+              </article>
+
+              <article class="funding-chart">
+                <h3>Three-Year Funding Transition</h3>
+                <ul class="funding-transition-list">
+                  <li class="funding-transition-row" style="--partner-share: 75%;">
+                    <div class="funding-transition-meta">
+                      <strong>Year 1</strong>
+                      <span>75% Partner Support / 25% Congregational Giving</span>
+                    </div>
+                    <div class="funding-transition-bar" aria-hidden="true">
+                      <span class="partner"></span>
+                      <span class="congregational"></span>
+                    </div>
+                  </li>
+                  <li class="funding-transition-row" style="--partner-share: 50%;">
+                    <div class="funding-transition-meta">
+                      <strong>Year 2</strong>
+                      <span>50% Partner Support / 50% Congregational Giving</span>
+                    </div>
+                    <div class="funding-transition-bar" aria-hidden="true">
+                      <span class="partner"></span>
+                      <span class="congregational"></span>
+                    </div>
+                  </li>
+                  <li class="funding-transition-row" style="--partner-share: 25%;">
+                    <div class="funding-transition-meta">
+                      <strong>Year 3</strong>
+                      <span>25% Partner Support / 75% Congregational Giving</span>
+                    </div>
+                    <div class="funding-transition-bar" aria-hidden="true">
+                      <span class="partner"></span>
+                      <span class="congregational"></span>
+                    </div>
+                  </li>
+                </ul>
+                <p class="funding-chart-note">Partner support helps establish the church early, while congregational giving increasingly sustains the work over time.</p>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
+      <section id="partners" aria-labelledby="partners-title">
+        <div class="partners-shell">
+          <div class="partners-top">
+            <div>
+              <p class="partners-label">CURRENT PARTNERS &amp; ENDORSERS</p>
+              <h2 id="partners-title" class="partners-title">We Are Not Doing<br>This Alone</h2>
+            </div>
+            <div class="section-copy partners-copy">
+              <p>
+                God has already surrounded this work with churches, ministry leaders, and partners who are praying, encouraging, giving, and helping us prepare for what is ahead. We are deeply grateful for those who have chosen to come alongside Go Albany.
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-logos" aria-label="Current partners and endorsers">
+            <article class="partner-logo">
+              <div class="partner-logo-label">North American Mission Board</div>
+              <div class="partner-logo-sub">Send Network</div>
+            </article>
+            <article class="partner-logo">
+              <div class="partner-logo-label">Cross Point Fellowship</div>
+              <div class="partner-logo-sub">Kingston, NY</div>
+            </article>
+            <article class="partner-logo">
+              <div class="partner-logo-label">Community Bible Church</div>
+              <div class="partner-logo-sub">High Point, NC</div>
+            </article>
+            <article class="partner-logo">
+              <div class="partner-logo-label">River of Life</div>
+              <div class="partner-logo-sub">Guilderland, NY</div>
+            </article>
+            <article class="partner-logo">
+              <div class="partner-logo-label">And More</div>
+              <div class="partner-logo-sub">Churches and partners coming alongside the work</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="newsletter" aria-labelledby="newsletter-title">
-        <div class="section-grid">
-          <h2 id="newsletter-title">Stay connected</h2>
-          <div class="section-copy">
-            <p>
-              We send occasional updates about prayer needs, launch plans,
-              gatherings, and practical ways to support the plant.
-            </p>
-            <!-- Begin Constant Contact Inline Form Code -->
-            <div class="ctct-inline-form" data-form-id="e37576d9-b0ba-4f4d-b5c8-4d1f52ae3d47"></div>
-            <!-- End Constant Contact Inline Form Code -->
-            <!-- Calendly inline widget begin -->
-            <div class="calendly-inline-widget" data-url="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" style="min-width:320px;height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            <!-- Calendly inline widget end -->
+        <div class="newsletter-shell">
+          <div class="newsletter-top">
+            <div class="newsletter-header">
+              <p class="newsletter-label">STAY CONNECTED</p>
+              <h2 id="newsletter-title" class="newsletter-title">Stay in the Loop</h2>
+            </div>
+            <div class="section-copy newsletter-intro">
+              <p>
+                We send occasional updates about prayer needs, launch plans,
+                gatherings, and practical ways to support the plant.
+              </p>
+            </div>
+          </div>
+          <div class="newsletter-forms">
+            <div class="newsletter-panel">
+              <!-- Begin Constant Contact Inline Form Code -->
+              <div class="ctct-inline-form" data-form-id="e37576d9-b0ba-4f4d-b5c8-4d1f52ae3d47"></div>
+              <!-- End Constant Contact Inline Form Code -->
+            </div>
+            <div class="newsletter-panel">
+              <!-- Calendly inline widget begin -->
+              <div class="calendly-inline-widget" data-url="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" style="min-width:320px;height:700px;"></div>
+              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+              <!-- Calendly inline widget end -->
+            </div>
           </div>
         </div>
       </section>
