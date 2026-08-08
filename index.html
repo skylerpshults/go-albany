@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="assets/Stained_Glass_Icon_Color.svg">
     <style>
       :root {
-        font-family: "Quincy CF";
+        font-family: "Quincy CF", "quincy-cf", "Fraunces";
         background: #f4f4f4;
         color: #001254;
         --ink: #001254;
@@ -23,14 +23,22 @@
         --text: #001254;
         --muted: #3a4a7a;
         --line: rgba(0, 18, 84, 0.12);
-        --font-body: "Quincy CF";
-        --font-display: "Fraunces";
-        --font-script-primary: "Espiritu Script";
-        --font-script-secondary: "Jimmy Script";
+        --font-body: "Quincy CF", "quincy-cf", "Fraunces";
+        --font-display: "Fraunces", "Quincy CF", "quincy-cf";
+        --font-script-primary: "Espiritu Script", "espiritu", "Jimmy Script", "Quincy CF", "quincy-cf";
+        --font-script-secondary: "Jimmy Script", "Espiritu Script", "espiritu", "Quincy CF", "quincy-cf";
+        --section-heading-size: clamp(2.1rem, 3.6vw, 3.6rem);
       }
 
       * {
         box-sizing: border-box;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
       }
 
       html {
@@ -166,7 +174,7 @@
         position: relative;
         min-height: clamp(720px, 94vh, 980px);
         --hero-progress: 0;
-        --video-scale: 0.94;
+        --video-scale: 1.04;
         --video-lift: 0px;
         --video-flow: 0px;
         --video-glow: 0.58;
@@ -486,7 +494,7 @@
         width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
         display: grid;
-        grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+        grid-template-columns: 1fr;
         gap: 44px;
         align-items: start;
       }
@@ -504,16 +512,23 @@
       }
 
       #who-we-are .section-grid {
-        grid-template-columns: 1fr;
         gap: 24px;
       }
 
-      .who-label {
+      .who-label,
+      .bethlehem-label,
+      .newsletter-label,
+      .support-label,
+      .partners-label,
+      .discipleship-label {
+        margin: 0;
+        color: var(--gold);
         font-family: var(--font-body);
-        font-size: 0.92rem;
+        font-size: 0.9rem;
+        font-weight: 800;
+        line-height: 1.2;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: var(--gold);
       }
 
       .who-content {
@@ -521,11 +536,6 @@
       }
 
       .who-title {
-        margin: 0;
-        color: var(--ink);
-        font-family: var(--font-display);
-        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
-        line-height: 0.94;
         white-space: normal;
       }
 
@@ -604,28 +614,9 @@
 
       .bethlehem-top {
         display: grid;
-        grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.1fr);
-        gap: 28px;
+        grid-template-columns: 1fr;
+        gap: 18px;
         align-items: start;
-      }
-
-      .bethlehem-label {
-        margin: 0 0 10px;
-        color: var(--gold);
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      .bethlehem-title {
-        margin: 0;
-        color: var(--ink);
-        font-family: var(--font-display);
-        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
-        line-height: 0.94;
-        letter-spacing: -0.02em;
       }
 
       .bethlehem-intro {
@@ -704,15 +695,43 @@
       }
 
       .bethlehem-image {
+        position: relative;
+        grid-column: auto;
+        min-height: 320px;
+        margin: 0;
         overflow: hidden;
+        display: grid;
+        place-items: center;
+        border: 3px dashed rgba(0, 18, 84, 0.28);
+        background:
+          linear-gradient(32deg, transparent 47%, rgba(0, 18, 84, 0.08) 48%, rgba(0, 18, 84, 0.08) 50%, transparent 51%),
+          linear-gradient(148deg, transparent 47%, rgba(255, 134, 5, 0.1) 48%, rgba(255, 134, 5, 0.1) 50%, transparent 51%),
+          var(--parchment);
       }
 
-      .bethlehem-image img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+      .bethlehem-map-placeholder {
+        display: grid;
+        place-items: center;
+        gap: 10px;
+        padding: 32px;
+        color: var(--ink);
+        text-align: center;
+      }
+
+      .bethlehem-map-placeholder strong {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 7vw, 6rem);
+        font-style: italic;
+        font-weight: 800;
+        line-height: 0.9;
+      }
+
+      .bethlehem-map-placeholder span {
+        color: var(--terracotta);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
       }
 
       #newsletter {
@@ -724,9 +743,11 @@
         position: relative;
         margin: 0;
         color: var(--ink);
-        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+        font-size: var(--section-heading-size);
+        font-style: italic;
+        font-weight: 800;
         line-height: 0.94;
-        letter-spacing: 0;
+        letter-spacing: -0.02em;
       }
 
       #newsletter h2 {
@@ -758,8 +779,8 @@
 
       .newsletter-top {
         display: grid;
-        grid-template-columns: minmax(480px, 1.05fr) minmax(360px, 0.95fr);
-        gap: 28px;
+        grid-template-columns: 1fr;
+        gap: 18px;
         align-items: start;
       }
 
@@ -767,24 +788,6 @@
         display: grid;
         gap: 10px;
         align-content: start;
-      }
-
-      .newsletter-label {
-        margin: 0;
-        color: var(--gold);
-        font-size: 0.9rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      .newsletter-title {
-        margin: 0;
-        color: var(--ink);
-        font-family: var(--font-display);
-        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
-        line-height: 0.94;
-        letter-spacing: -0.02em;
       }
 
       .newsletter-intro {
@@ -825,32 +828,13 @@
 
       .support-top {
         display: grid;
-        grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
-        gap: 28px;
+        grid-template-columns: 1fr;
+        gap: 18px;
         align-items: start;
       }
 
       #launch-point .section-grid {
-        grid-template-columns: 1fr;
         gap: 28px;
-      }
-
-      .support-label {
-        margin: 0;
-        color: var(--gold);
-        font-size: 0.9rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      .support-title {
-        margin: 0;
-        color: var(--ink);
-        font-family: var(--font-display);
-        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
-        line-height: 0.94;
-        letter-spacing: -0.02em;
       }
 
       .support-intro,
@@ -1008,35 +992,214 @@
         line-height: 1.45;
       }
 
-      .funding-transition-list .funding-transition-row {
+      .funding-goal-chart {
+        align-content: start;
+      }
+
+      .funding-goal-total {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(1.55rem, 2.4vw, 2rem);
+        font-weight: 800;
+        line-height: 1.08;
+      }
+
+      .funding-goal-total span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-family: var(--font-body);
+        font-size: 0.94rem;
+        font-weight: 700;
+      }
+
+      .funding-goal-legend {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        color: var(--ink);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .funding-goal-legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .funding-goal-legend i {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+      }
+
+      .funding-goal-legend .initial-key {
+        background: var(--terracotta);
+      }
+
+      .funding-goal-legend .seed-key {
+        background: var(--ink);
+      }
+
+      .funding-goal-plot {
+        display: grid;
+        grid-template-columns: 74px minmax(0, 1fr);
+        gap: 12px;
+        height: 250px;
+        margin-top: 2px;
+      }
+
+      .funding-goal-axis {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .funding-goal-stack-area {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        border-bottom: 1px solid rgba(0, 18, 84, 0.14);
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(0, 18, 84, 0.1) 0,
+          rgba(0, 18, 84, 0.1) 1px,
+          transparent 1px,
+          transparent 25%
+        );
+      }
+
+      .funding-goal-stack {
+        align-self: stretch;
+        display: grid;
+        grid-template-rows: 25% 75%;
+        width: min(72%, 250px);
+        overflow: hidden;
+        border-radius: 18px 18px 6px 6px;
+        box-shadow: 0 12px 24px rgba(0, 18, 84, 0.12);
+      }
+
+      .funding-goal-seed,
+      .funding-goal-initial {
+        display: grid;
+        place-items: center;
+        color: var(--ivory);
+        font-weight: 800;
+      }
+
+      .funding-goal-seed {
+        background: var(--ink);
+      }
+
+      .funding-goal-initial {
+        background: var(--terracotta);
+      }
+
+      .funding-transition-chart {
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .funding-transition-chart h3 {
+        max-width: none;
+        margin-inline: 0;
+        text-align: left;
+        text-decoration: none;
+      }
+
+      .funding-transition-legend {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px 28px;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 0.92rem;
+      }
+
+      .funding-transition-legend span {
+        display: inline-flex;
+        align-items: center;
         gap: 8px;
       }
 
-      .funding-transition-row .funding-transition-meta {
-        display: grid;
-        gap: 4px;
+      .funding-transition-legend i {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+      }
+
+      .funding-transition-legend .partner-key {
+        background: var(--terracotta);
+      }
+
+      .funding-transition-legend .congregational-key {
+        background: var(--sand);
+      }
+
+      .funding-transition-list {
+        gap: 14px !important;
+      }
+
+      .funding-transition-list .funding-transition-row {
+        grid-template-columns: 62px minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+        padding: 0;
+        background: transparent;
+      }
+
+      .funding-transition-row > strong {
+        color: var(--ink);
+        font-size: 0.94rem;
+        white-space: nowrap;
       }
 
       .funding-transition-bar {
         display: grid;
         grid-template-columns: minmax(0, var(--partner-share, 50%)) minmax(0, calc(100% - var(--partner-share, 50%)));
-        min-height: 16px;
+        min-height: 52px;
         overflow: hidden;
-        border-radius: 999px;
+        border-radius: 12px;
         background: rgba(0, 18, 84, 0.08);
       }
 
-      .funding-transition-bar span {
-        display: block;
+      .funding-chart .funding-transition-bar span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         height: 100%;
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 800;
+        line-height: 1;
       }
 
       .funding-transition-bar .partner {
-        background: linear-gradient(90deg, var(--terracotta), var(--gold));
+        background: var(--terracotta);
+        color: var(--ink);
       }
 
       .funding-transition-bar .congregational {
-        background: rgba(195, 229, 226, 0.95);
+        background: var(--sand);
+        color: var(--ink);
+      }
+
+      .funding-transition-scale {
+        display: flex;
+        justify-content: space-between;
+        margin: -6px 0 0 72px;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 0.84rem;
       }
 
       .funding-chart li strong {
@@ -1111,27 +1274,9 @@
 
       .partners-top {
         display: grid;
-        grid-template-columns: minmax(420px, 1fr) minmax(360px, 0.95fr);
-        gap: 28px;
+        grid-template-columns: 1fr;
+        gap: 18px;
         align-items: start;
-      }
-
-      .partners-label {
-        margin: 0;
-        color: var(--gold);
-        font-size: 0.9rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      .partners-title {
-        margin: 0;
-        color: var(--ink);
-        font-family: var(--font-display);
-        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
-        line-height: 0.94;
-        letter-spacing: -0.02em;
       }
 
       .partners-mark {
@@ -1243,25 +1388,11 @@
       .discipleship-header {
         display: grid;
         gap: 16px;
-        max-width: 760px;
-      }
-
-      .discipleship-label {
-        margin: 0;
-        color: var(--gold);
-        font-size: 0.9rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
+        max-width: none;
       }
 
       .discipleship-title {
-        margin: 0;
-        color: var(--ink);
-        font-family: var(--font-display);
-        font-size: clamp(2.7rem, 4.8vw, 4.8rem);
-        line-height: 0.94;
-        letter-spacing: -0.02em;
+        white-space: nowrap;
       }
 
       .discipleship-intro {
@@ -1478,10 +1609,6 @@
         align-items: end;
       }
 
-      .who-title {
-        white-space: normal;
-      }
-
       footer {
         padding: 24px 0 36px;
         background: #001254;
@@ -1490,6 +1617,10 @@
       }
 
       @media (max-width: 900px) {
+        .discipleship-title {
+          white-space: normal;
+        }
+
         .hero-layout,
         .section-grid {
           grid-template-columns: 1fr;
@@ -1512,23 +1643,8 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .support-top {
-          grid-template-columns: 1fr;
-          gap: 18px;
-        }
-
-        .newsletter-top {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-
         .newsletter-forms {
           grid-template-columns: 1fr;
-        }
-
-        .partners-top {
-          grid-template-columns: 1fr;
-          gap: 24px;
         }
 
         .discipleship-shell {
@@ -1597,11 +1713,6 @@
           gap: 20px;
         }
 
-        #bethlehem .bethlehem-top {
-          grid-template-columns: 1fr;
-          gap: 18px;
-        }
-
         #bethlehem .bethlehem-bottom {
           grid-template-columns: 1fr;
         }
@@ -1612,7 +1723,7 @@
         }
 
         #bethlehem .bethlehem-image {
-          min-height: 280px;
+          min-height: 360px;
         }
 
         .hero-stage {
@@ -1760,11 +1871,11 @@
           <img src="assets/GA_Logo_Horizontal_Color.svg" alt="" aria-hidden="true">
         </a>
         <div class="nav-links">
-          <a href="#who-we-are">Who we are</a>
+          <a href="#who-we-are">Who We Are</a>
           <a href="#bethlehem">Bethlehem</a>
           <a href="#discipleship">Discipleship</a>
-          <a href="#support">Join the Mission</a>
-          <a href="#newsletter">Newsletter</a>
+          <a href="#support">Partner With Us</a>
+          <a href="#newsletter">Connect</a>
           <a class="nav-cta" href="https://giving.myamplify.io//app/giving/crosspoint" target="_blank" rel="noopener noreferrer">Give</a>
         </div>
       </nav>
@@ -1799,7 +1910,7 @@
 
       <section id="who-we-are" aria-labelledby="who-title">
         <div class="section-grid">
-          <h2 id="who-title" class="who-label">Who we are</h2>
+          <p id="who-title" class="who-label">Who we are</p>
           <div class="section-copy who-content">
             <h2 class="who-title">A Gospel-Centered, Disciple-Making Church</h2>
             <div class="who-mission">
@@ -1901,8 +2012,11 @@
               <p>Bethlehem provides a strategic place to develop disciples and leaders who can be sent throughout the Capital Region and help establish more healthy churches.</p>
             </article>
 
-            <figure class="bethlehem-image">
-              <img src="assets/pictures/AdobeStock_214490358.jpeg" alt="Albany skyline at dusk over the river">
+            <figure class="bethlehem-image" aria-label="Placeholder for a map of Albany">
+              <div class="bethlehem-map-placeholder">
+                <strong>MAP OF ALBANY</strong>
+                <span>Map placeholder</span>
+              </div>
             </figure>
           </div>
         </div>
@@ -1912,7 +2026,7 @@
         <div class="discipleship-shell">
           <div class="discipleship-header">
             <p class="discipleship-label">Every disciple a disciplemaker</p>
-            <h2 id="discipleship-title" class="discipleship-title">A Clear Path from<br>Connection to Multiplication</h2>
+            <h2 id="discipleship-title" class="discipleship-title">A Clear Path from Connection to Multiplication</h2>
             <div class="section-copy discipleship-intro">
               <p>
                 Discipleship is more than information or attendance. We want to help people trust Jesus, obey Jesus, become like Jesus, and help others follow Jesus.
@@ -2051,7 +2165,7 @@
           <div class="support-top">
             <div>
               <p class="support-label">PARTNER WITH US</p>
-              <h2 id="support-title" class="support-title">Together for<br>the Gospel</h2>
+              <h2 id="support-title" class="support-title">Together for the Gospel</h2>
             </div>
             <div class="section-copy">
               <p class="support-intro">
@@ -2132,49 +2246,65 @@
             </div>
 
             <div class="funding-charts" aria-label="Partnership funding charts">
-              <article class="funding-chart">
+              <article class="funding-chart funding-goal-chart">
                 <h3>Funding the First Church &mdash; Seeding the Next</h3>
-                <ul>
-                  <li><strong>$225,000</strong><span>Initial Plant Partner Support</span></li>
-                  <li><strong>$75,000</strong><span>Future Plant Seed Fund</span></li>
-                  <li><strong>$300,000</strong><span>Partner Giving Goal</span></li>
-                </ul>
+                <p class="funding-goal-total">
+                  $300,000 Partner Giving Goal
+                  <span>over three years</span>
+                </p>
+                <div class="funding-goal-legend" aria-hidden="true">
+                  <span><i class="initial-key"></i>Initial Plant Partner Support</span>
+                  <span><i class="seed-key"></i>Future Plant Seed Fund</span>
+                </div>
+                <div class="funding-goal-plot" role="img" aria-label="$300,000 total goal: $225,000 for initial plant partner support and $75,000 for the future plant seed fund">
+                  <div class="funding-goal-axis" aria-hidden="true">
+                    <span>$300k</span>
+                    <span>$225k</span>
+                    <span>$150k</span>
+                    <span>$75k</span>
+                    <span>$0</span>
+                  </div>
+                  <div class="funding-goal-stack-area">
+                    <div class="funding-goal-stack" aria-hidden="true">
+                      <div class="funding-goal-seed">$75,000</div>
+                      <div class="funding-goal-initial">$225,000</div>
+                    </div>
+                  </div>
+                </div>
               </article>
 
-              <article class="funding-chart">
+              <article class="funding-chart funding-transition-chart">
                 <h3>Three-Year Funding Transition</h3>
+                <div class="funding-transition-legend" aria-hidden="true">
+                  <span><i class="partner-key"></i>Partner Support</span>
+                  <span><i class="congregational-key"></i>Congregational Giving</span>
+                </div>
                 <ul class="funding-transition-list">
                   <li class="funding-transition-row" style="--partner-share: 75%;">
-                    <div class="funding-transition-meta">
-                      <strong>Year 1</strong>
-                      <span>75% Partner Support / 25% Congregational Giving</span>
-                    </div>
-                    <div class="funding-transition-bar" aria-hidden="true">
-                      <span class="partner"></span>
-                      <span class="congregational"></span>
+                    <strong>Year 1</strong>
+                    <div class="funding-transition-bar" aria-label="75% Partner Support, 25% Congregational Giving">
+                      <span class="partner">75%</span>
+                      <span class="congregational">25%</span>
                     </div>
                   </li>
                   <li class="funding-transition-row" style="--partner-share: 50%;">
-                    <div class="funding-transition-meta">
-                      <strong>Year 2</strong>
-                      <span>50% Partner Support / 50% Congregational Giving</span>
-                    </div>
-                    <div class="funding-transition-bar" aria-hidden="true">
-                      <span class="partner"></span>
-                      <span class="congregational"></span>
+                    <strong>Year 2</strong>
+                    <div class="funding-transition-bar" aria-label="50% Partner Support, 50% Congregational Giving">
+                      <span class="partner">50%</span>
+                      <span class="congregational">50%</span>
                     </div>
                   </li>
                   <li class="funding-transition-row" style="--partner-share: 25%;">
-                    <div class="funding-transition-meta">
-                      <strong>Year 3</strong>
-                      <span>25% Partner Support / 75% Congregational Giving</span>
-                    </div>
-                    <div class="funding-transition-bar" aria-hidden="true">
-                      <span class="partner"></span>
-                      <span class="congregational"></span>
+                    <strong>Year 3</strong>
+                    <div class="funding-transition-bar" aria-label="25% Partner Support, 75% Congregational Giving">
+                      <span class="partner">25%</span>
+                      <span class="congregational">75%</span>
                     </div>
                   </li>
                 </ul>
+                <div class="funding-transition-scale" aria-hidden="true">
+                  <span>0</span><span>50</span><span>100</span>
+                </div>
                 <p class="funding-chart-note">Partner support helps establish the church early, while congregational giving increasingly sustains the work over time.</p>
               </article>
             </div>
@@ -2187,7 +2317,7 @@
           <div class="partners-top">
             <div>
               <p class="partners-label">CURRENT PARTNERS &amp; ENDORSERS</p>
-              <h2 id="partners-title" class="partners-title">We Are Not Doing<br>This Alone</h2>
+              <h2 id="partners-title" class="partners-title">We Are Not Doing This Alone</h2>
             </div>
             <div class="section-copy partners-copy">
               <p>
@@ -2290,7 +2420,7 @@
           }
 
           const easedProgress = 1 - Math.pow(1 - currentProgress, 3);
-          const videoScale = 0.94 + easedProgress * 0.22;
+          const videoScale = 1.04 + easedProgress * 0.12;
           const videoLift = `${(-4 + easedProgress * 10).toFixed(2)}px`;
           const videoFlow = `${(easedProgress * 3).toFixed(2)}vh`;
           const videoGlow = 0.58 + easedProgress * 0.18;
