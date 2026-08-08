@@ -540,6 +540,9 @@
       }
 
       .who-mission {
+        justify-self: center;
+        width: fit-content;
+        max-width: 100%;
         margin: 0;
         padding: 20px 22px;
         border-radius: 20px;
@@ -547,6 +550,7 @@
         color: #ffffff;
         font-size: 1.15rem;
         line-height: 1.65;
+        text-align: center;
         box-shadow: 0 20px 40px rgba(0, 18, 84, 0.16);
       }
 
@@ -575,7 +579,14 @@
         box-shadow: 0 20px 42px rgba(0, 18, 84, 0.08);
       }
 
+      .dna-card-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
       .dna-icon {
+        flex: 0 0 58px;
         width: 58px;
         height: 58px;
         display: grid;
@@ -634,7 +645,7 @@
 
       .bethlehem-bottom {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
         align-items: stretch;
       }
@@ -649,18 +660,18 @@
       }
 
       .bethlehem-card {
+        min-height: 0;
         display: grid;
-        gap: 12px;
-        align-content: start;
-        padding: 20px;
+        grid-template-rows: auto auto 1fr;
+        gap: 14px;
+        align-content: stretch;
+        padding: 24px;
       }
 
-      .bethlehem-card-number {
-        color: var(--gold);
-        font-family: var(--font-display);
-        font-size: 0.98rem;
-        letter-spacing: 0.16em;
-        font-weight: 700;
+      .bethlehem-card-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
 
       .bethlehem-card h3 {
@@ -674,11 +685,115 @@
       .bethlehem-card p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.98rem;
-        line-height: 1.62;
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      .bethlehem-long-term {
+        grid-template-rows: auto auto auto;
+        gap: 16px;
+      }
+
+      .bethlehem-long-term-divider {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), rgba(252, 196, 0, 0.08));
+      }
+
+      .bethlehem-supporting-info {
+        display: grid;
+        gap: 14px;
+      }
+
+      .bethlehem-info-block {
+        display: grid;
+        gap: 5px;
+      }
+
+      .bethlehem-info-label {
+        margin: 0;
+        color: var(--gold);
+        font-size: 0.72rem;
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .bethlehem-info-label.need {
+        color: #5e8a90;
+      }
+
+      .bethlehem-long-term .bethlehem-info-copy {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .evangelical-visual {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 14px;
+        padding-top: 2px;
+      }
+
+      .people-pictogram {
+        position: relative;
+        width: 100%;
+        max-width: 330px;
+        aspect-ratio: 4 / 1;
+      }
+
+      .people-pictogram::before,
+      .people-pictogram-highlight {
+        position: absolute;
+        inset: 0;
+        content: "";
+        -webkit-mask-image: url("assets/icons/user_icon.svg");
+        mask-image: url("assets/icons/user_icon.svg");
+        -webkit-mask-size: 5% 20%;
+        mask-size: 5% 20%;
+        -webkit-mask-repeat: repeat;
+        mask-repeat: repeat;
+      }
+
+      .people-pictogram::before {
+        background: rgba(0, 18, 84, 0.16);
+      }
+
+      .people-pictogram-highlight {
+        right: auto;
+        width: 15%;
+        height: 20%;
+        background: #55de85;
+        -webkit-mask-size: 33.333% 100%;
+        mask-size: 33.333% 100%;
+      }
+
+      .evangelical-stat {
+        display: grid;
+        justify-items: start;
+        min-width: 66px;
+      }
+
+      .evangelical-stat strong {
+        color: #55de85;
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        line-height: 0.9;
+      }
+
+      .evangelical-stat span {
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .bethlehem-icon-wrap {
+        flex: 0 0 56px;
         width: 56px;
         height: 56px;
         display: grid;
@@ -696,42 +811,57 @@
 
       .bethlehem-image {
         position: relative;
-        grid-column: auto;
-        min-height: 320px;
+        min-height: 0;
         margin: 0;
         overflow: hidden;
-        display: grid;
-        place-items: center;
-        border: 3px dashed rgba(0, 18, 84, 0.28);
-        background:
-          linear-gradient(32deg, transparent 47%, rgba(0, 18, 84, 0.08) 48%, rgba(0, 18, 84, 0.08) 50%, transparent 51%),
-          linear-gradient(148deg, transparent 47%, rgba(255, 134, 5, 0.1) 48%, rgba(255, 134, 5, 0.1) 50%, transparent 51%),
-          var(--parchment);
+        display: block;
+        border: 1px solid rgba(0, 18, 84, 0.12);
+        border-radius: 18px;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 18, 84, 0.05);
       }
 
-      .bethlehem-map-placeholder {
-        display: grid;
-        place-items: center;
-        gap: 10px;
-        padding: 32px;
-        color: var(--ink);
+      .bethlehem-map-visual {
+        position: relative;
+        min-height: 320px;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .bethlehem-map-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+
+      .bethlehem-map-caption {
+        display: flex;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 0;
+        min-height: 76px;
+        padding: 16px 22px;
+        border-top: 1px solid rgba(0, 18, 84, 0.08);
+        background: #ffffff;
+        color: var(--muted);
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.4;
         text-align: center;
       }
 
-      .bethlehem-map-placeholder strong {
-        font-family: var(--font-display);
-        font-size: clamp(2.5rem, 7vw, 6rem);
-        font-style: italic;
-        font-weight: 800;
-        line-height: 0.9;
-      }
-
-      .bethlehem-map-placeholder span {
-        color: var(--terracotta);
-        font-size: 0.9rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
+      .bethlehem-map-caption svg {
+        flex: 0 0 28px;
+        width: 28px;
+        height: 28px;
+        fill: var(--gold);
       }
 
       #newsletter {
@@ -852,7 +982,9 @@
       }
 
       .support-list li {
-        min-height: 180px;
+        display: grid;
+        align-content: start;
+        gap: 14px;
         padding: 20px;
         border: 1px solid rgba(0, 18, 84, 0.1);
         border-radius: 16px;
@@ -863,6 +995,7 @@
       }
 
       .support-card-icon {
+        flex: 0 0 58px;
         width: 58px;
         height: 58px;
         display: grid;
@@ -894,9 +1027,9 @@
       }
 
       .support-card-header {
-        display: grid;
+        display: flex;
+        align-items: center;
         gap: 12px;
-        justify-items: start;
       }
 
       .funding-progress {
@@ -1421,8 +1554,13 @@
 
       .discipleship-step-header {
         display: grid;
+        place-items: center;
+      }
+
+      .discipleship-step-title {
+        display: flex;
+        align-items: center;
         gap: 10px;
-        justify-items: start;
       }
 
       .discipleship-icon {
@@ -1493,6 +1631,7 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
+        align-items: start;
       }
 
       .discipleship-tool {
@@ -1506,6 +1645,17 @@
         display: grid;
         gap: 10px;
         align-content: start;
+      }
+
+      .discipleship-tool-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .discipleship-tool-heading-copy {
+        display: grid;
+        gap: 4px;
       }
 
       .discipleship-tool-icon {
@@ -1723,7 +1873,23 @@
         }
 
         #bethlehem .bethlehem-image {
-          min-height: 360px;
+          min-height: 0;
+        }
+
+        #bethlehem .bethlehem-map-visual {
+          min-height: 0;
+          aspect-ratio: 4 / 3;
+        }
+
+        .evangelical-visual {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .evangelical-stat {
+          grid-template-columns: auto auto;
+          align-items: baseline;
+          gap: 7px;
         }
 
         .hero-stage {
@@ -1791,6 +1957,14 @@
           padding: 22px 0 28px;
         }
 
+        .hero-layout {
+          padding: 0;
+        }
+
+        .hero-scroll {
+          min-height: auto;
+        }
+
         section {
           padding: 56px 0;
         }
@@ -1804,6 +1978,9 @@
         }
 
         .hero-stage {
+          position: relative;
+          top: auto;
+          display: grid;
           min-height: auto;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           grid-auto-rows: 160px;
@@ -1811,6 +1988,9 @@
         }
 
         .video-frame {
+          position: relative;
+          inset: auto;
+          width: 100%;
           grid-area: 1 / 1 / span 2 / span 2;
           aspect-ratio: 16 / 9;
           transform: none;
@@ -1824,6 +2004,11 @@
         .media-float.placeholder-6,
         .media-float.placeholder-7,
         .media-float.placeholder-8 {
+          position: relative;
+          inset: auto;
+          width: 100%;
+          height: auto;
+          transform: none;
           grid-area: auto;
         }
 
@@ -1872,7 +2057,7 @@
         </a>
         <div class="nav-links">
           <a href="#who-we-are">Who We Are</a>
-          <a href="#bethlehem">Bethlehem</a>
+          <a href="#bethlehem">Starting Point</a>
           <a href="#discipleship">Discipleship</a>
           <a href="#support">Partner With Us</a>
           <a href="#newsletter">Connect</a>
@@ -1921,45 +2106,57 @@
             </p>
             <div class="dna-grid" aria-label="Church DNA">
               <article class="dna-card">
-                <span class="dna-icon" aria-hidden="true">
-                  <img src="assets/icons/09_dna.svg" alt="">
-                </span>
-                <strong>Gospel-Centered</strong>
+                <div class="dna-card-heading">
+                  <span class="dna-icon" aria-hidden="true">
+                    <img src="assets/icons/09_dna.svg" alt="">
+                  </span>
+                  <strong>Gospel-Centered</strong>
+                </div>
                 <p>The life, death, and resurrection of Jesus remain at the center of our preaching, worship, discipleship, and mission.</p>
               </article>
               <article class="dna-card">
-                <span class="dna-icon" aria-hidden="true">
-                  <img src="assets/icons/20_open_bible_heart.svg" alt="">
-                </span>
-                <strong>Biblically Faithful</strong>
+                <div class="dna-card-heading">
+                  <span class="dna-icon" aria-hidden="true">
+                    <img src="assets/icons/20_open_bible_heart.svg" alt="">
+                  </span>
+                  <strong>Biblically Faithful</strong>
+                </div>
                 <p>We trust the authority and sufficiency of Scripture and want God’s Word to shape everyday life.</p>
               </article>
               <article class="dna-card">
-                <span class="dna-icon" aria-hidden="true">
-                  <img src="assets/icons/01_pray.svg" alt="">
-                </span>
-                <strong>Prayerfully Dependent</strong>
+                <div class="dna-card-heading">
+                  <span class="dna-icon" aria-hidden="true">
+                    <img src="assets/icons/01_pray.svg" alt="">
+                  </span>
+                  <strong>Prayerfully Dependent</strong>
+                </div>
                 <p>We believe lasting spiritual fruit comes from God, so prayer shapes our decisions, relationships, gatherings, and mission.</p>
               </article>
               <article class="dna-card">
-                <span class="dna-icon" aria-hidden="true">
-                  <img src="assets/icons/11_belong_home_heart.svg" alt="">
-                </span>
-                <strong>Relationally Invested</strong>
+                <div class="dna-card-heading">
+                  <span class="dna-icon" aria-hidden="true">
+                    <img src="assets/icons/11_belong_home_heart.svg" alt="">
+                  </span>
+                  <strong>Relationally Invested</strong>
+                </div>
                 <p>Discipleship happens through life together. We pursue hospitality, honest relationships, mutual care, and meaningful community.</p>
               </article>
               <article class="dna-card">
-                <span class="dna-icon" aria-hidden="true">
-                  <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
-                </span>
-                <strong>Missionally Engaged</strong>
+                <div class="dna-card-heading">
+                  <span class="dna-icon" aria-hidden="true">
+                    <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
+                  </span>
+                  <strong>Missionally Engaged</strong>
+                </div>
                 <p>We equip every believer to live as a missionary in their individual spheres of influence.</p>
               </article>
               <article class="dna-card">
-                <span class="dna-icon" aria-hidden="true">
-                  <img src="assets/icons/13_multiply_disciple.svg" alt="">
-                </span>
-                <strong>Multiplication Focused</strong>
+                <div class="dna-card-heading">
+                  <span class="dna-icon" aria-hidden="true">
+                    <img src="assets/icons/13_multiply_disciple.svg" alt="">
+                  </span>
+                  <strong>Multiplication Focused</strong>
+                </div>
                 <p>We develop disciples who make disciples, leaders who develop leaders, and a church prepared to help plant more churches.</p>
               </article>
             </div>
@@ -1976,7 +2173,7 @@
             </div>
             <div class="bethlehem-intro">
               <p>
-                Bethlehem gives us a practical and strategic starting point. It is close to Albany, connected to the wider region, and full of people whose lives are shaped by work, family, school, and long commutes.
+                As a Suburb of Albany, Bethlehem gives us a practical and strategic starting point. It is close to Albany, connected to the wider region, and full of people whose lives are shaped by work, family, school, and long commutes.
               </p>
               <p>
                 The area is strong on paper, but many people remain disconnected from a healthy local church. We want to enter with genuine affection, listen well, open our home, and become a faithful presence over time.
@@ -1986,37 +2183,65 @@
 
           <div class="bethlehem-bottom" aria-label="Bethlehem highlights">
             <article class="bethlehem-card">
-              <span class="bethlehem-icon-wrap" aria-hidden="true">
-                <img src="assets/icons/08_home.svg" alt="">
-              </span>
-              <span class="bethlehem-card-number">01</span>
-              <h3>A Place to Plant Deeply</h3>
+              <div class="bethlehem-card-heading">
+                <span class="bethlehem-icon-wrap" aria-hidden="true">
+                  <img src="assets/icons/08_home.svg" alt="">
+                </span>
+                <h3>A Place to Plant Deeply</h3>
+              </div>
               <p>Bethlehem gives us a community where we can build relationships, serve our neighbors, and establish a church while remaining closely connected to Albany and the wider Capital Region.</p>
             </article>
 
             <article class="bethlehem-card">
-              <span class="bethlehem-icon-wrap" aria-hidden="true">
-                <img src="assets/icons/05_people_outline.svg" alt="">
-              </span>
-              <span class="bethlehem-card-number">02</span>
-              <h3>A Community with Opportunity</h3>
+              <div class="bethlehem-card-heading">
+                <span class="bethlehem-icon-wrap" aria-hidden="true">
+                  <img src="assets/icons/05_people_outline.svg" alt="">
+                </span>
+                <h3>A Community with Opportunity</h3>
+              </div>
               <p>More than 135,500 people live within a fifteen-minute drive, including families, students, professionals, educators, government employees, healthcare workers, and retirees.</p>
             </article>
 
-            <article class="bethlehem-card">
-              <span class="bethlehem-icon-wrap" aria-hidden="true">
-                <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
-              </span>
-              <span class="bethlehem-card-number">03</span>
-              <h3>A Long-Term Opportunity</h3>
+            <article class="bethlehem-card bethlehem-long-term">
+              <div class="bethlehem-card-heading">
+                <span class="bethlehem-icon-wrap" aria-hidden="true">
+                  <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
+                </span>
+                <h3>A Long-Term Opportunity</h3>
+              </div>
               <p>Bethlehem provides a strategic place to develop disciples and leaders who can be sent throughout the Capital Region and help establish more healthy churches.</p>
+              <div class="bethlehem-long-term-divider" aria-hidden="true"></div>
+              <div class="bethlehem-supporting-info">
+                <div class="bethlehem-info-block">
+                  <h4 class="bethlehem-info-label">Regional Opportunity</h4>
+                  <p class="bethlehem-info-copy">Albany’s influence reaches far beyond the city through state government, universities, healthcare, business, and the people who move throughout the Northeast.</p>
+                </div>
+                <div class="bethlehem-info-block">
+                  <h4 class="bethlehem-info-label need">Regional Need</h4>
+                  <p class="bethlehem-info-copy">Only about 3% of the Capital Region identifies as evangelical. Many people remain disconnected from a healthy local church and the hope of the gospel.</p>
+                </div>
+                <div class="evangelical-visual" role="img" aria-label="Approximately 3% of the Capital Region identifies as evangelical: 3 highlighted people out of 100">
+                  <div class="people-pictogram" aria-hidden="true">
+                    <span class="people-pictogram-highlight"></span>
+                  </div>
+                  <div class="evangelical-stat" aria-hidden="true">
+                    <strong>3%</strong>
+                    <span>Evangelical</span>
+                  </div>
+                </div>
+              </div>
             </article>
 
-            <figure class="bethlehem-image" aria-label="Placeholder for a map of Albany">
-              <div class="bethlehem-map-placeholder">
-                <strong>MAP OF ALBANY</strong>
-                <span>Map placeholder</span>
+            <figure class="bethlehem-image">
+              <div class="bethlehem-map-visual">
+                <img src="assets/pictures/albany-bethlehem-map.png" alt="Map showing Bethlehem southwest of Albany">
               </div>
+              <figcaption class="bethlehem-map-caption">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/>
+                </svg>
+                <span>Bethlehem: a strategic doorway to Albany and the wider Capital Region.</span>
+              </figcaption>
             </figure>
           </div>
         </div>
@@ -2040,9 +2265,11 @@
                 <span class="discipleship-icon" aria-hidden="true">
                   <img src="assets/icons/10_connect_people.svg" alt="">
                 </span>
-                <span class="discipleship-number">1</span>
               </div>
-              <h3>Connect</h3>
+              <div class="discipleship-step-title">
+                <span class="discipleship-number">1</span>
+                <h3>Connect</h3>
+              </div>
               <div class="discipleship-subtitle">Visitor &rarr; Attender</div>
               <p>Meet the church, build relationships, and begin returning.</p>
             </article>
@@ -2059,9 +2286,11 @@
                 <span class="discipleship-icon" aria-hidden="true">
                   <img src="assets/icons/11_belong_home_heart.svg" alt="">
                 </span>
-                <span class="discipleship-number">2</span>
               </div>
-              <h3>Belong</h3>
+              <div class="discipleship-step-title">
+                <span class="discipleship-number">2</span>
+                <h3>Belong</h3>
+              </div>
               <div class="discipleship-subtitle">Member</div>
               <p>Complete Rooted and join the church body through membership.</p>
             </article>
@@ -2078,9 +2307,11 @@
                 <span class="discipleship-icon" aria-hidden="true">
                   <img src="assets/icons/12_grow_sprout.svg" alt="">
                 </span>
-                <span class="discipleship-number">3</span>
               </div>
-              <h3>Grow</h3>
+              <div class="discipleship-step-title">
+                <span class="discipleship-number">3</span>
+                <h3>Grow</h3>
+              </div>
               <div class="discipleship-subtitle">Disciple</div>
               <p>Enter a DMR and grow through prayer, Scripture, obedience, and life together.</p>
             </article>
@@ -2097,9 +2328,11 @@
                 <span class="discipleship-icon" aria-hidden="true">
                   <img src="assets/icons/13_multiply_disciple.svg" alt="">
                 </span>
-                <span class="discipleship-number">4</span>
               </div>
-              <h3>Multiply</h3>
+              <div class="discipleship-step-title">
+                <span class="discipleship-number">4</span>
+                <h3>Multiply</h3>
+              </div>
               <div class="discipleship-subtitle">Disciplemaker</div>
               <p>Help someone else follow Jesus through a Disciple-Making Relationship.</p>
             </article>
@@ -2116,9 +2349,11 @@
                 <span class="discipleship-icon" aria-hidden="true">
                   <img src="assets/icons/14_lead_send_paper_plane.svg" alt="">
                 </span>
-                <span class="discipleship-number">5</span>
               </div>
-              <h3>Lead &amp; Send</h3>
+              <div class="discipleship-step-title">
+                <span class="discipleship-number">5</span>
+                <h3>Lead &amp; Send</h3>
+              </div>
               <div class="discipleship-subtitle">Leader</div>
               <p>Serve, lead, develop others, and pursue calling as God leads.</p>
             </article>
@@ -2127,32 +2362,45 @@
           <div class="discipleship-tools" aria-label="Supporting discipleship tools">
             <article class="discipleship-tool">
               <div class="discipleship-tool-inner">
-                <span class="discipleship-tool-icon" aria-hidden="true">
-                  <img src="assets/icons/15_rooted_tree.svg" alt="">
-                </span>
-                <h4>Rooted</h4>
+                <div class="discipleship-tool-heading">
+                  <span class="discipleship-tool-icon" aria-hidden="true">
+                    <img src="assets/icons/15_rooted_tree.svg" alt="">
+                  </span>
+                  <div class="discipleship-tool-heading-copy">
+                    <h4>Rooted</h4>
+                    <div class="tool-subtitle">Membership Class</div>
+                  </div>
+                </div>
                 <p>A six-week introduction to the gospel, God, Scripture, discipleship, mission, and church life.</p>
               </div>
             </article>
 
             <article class="discipleship-tool">
               <div class="discipleship-tool-inner">
-                <span class="discipleship-tool-icon" aria-hidden="true">
-                  <img src="assets/icons/16_dmr_group.svg" alt="">
-                </span>
-                <h4>DMR</h4>
-                <div class="tool-subtitle">Disciple-Making Relationships</div>
+                <div class="discipleship-tool-heading">
+                  <span class="discipleship-tool-icon" aria-hidden="true">
+                    <img src="assets/icons/16_dmr_group.svg" alt="">
+                  </span>
+                  <div class="discipleship-tool-heading-copy">
+                    <h4>DMR</h4>
+                    <div class="tool-subtitle">Disciple-Making Relationships</div>
+                  </div>
+                </div>
                 <p>Two or three people meeting regularly for life-on-life discipleship.</p>
               </div>
             </article>
 
             <article class="discipleship-tool">
               <div class="discipleship-tool-inner">
-                <span class="discipleship-tool-icon" aria-hidden="true">
-                  <img src="assets/icons/17_mawl_footsteps.svg" alt="">
-                </span>
-                <h4>M.A.W.L.</h4>
-                <div class="tool-subtitle">Model. Assist. Watch. Leave.</div>
+                <div class="discipleship-tool-heading">
+                  <span class="discipleship-tool-icon" aria-hidden="true">
+                    <img src="assets/icons/17_mawl_footsteps.svg" alt="">
+                  </span>
+                  <div class="discipleship-tool-heading-copy">
+                    <h4>M.A.W.L.</h4>
+                    <div class="tool-subtitle">Model. Assist. Watch. Leave.</div>
+                  </div>
+                </div>
                 <p>A simple process for training people and releasing them to train others.</p>
               </div>
             </article>
@@ -2207,7 +2455,7 @@
                   <span class="support-card-icon" aria-hidden="true">
                     <img src="assets/icons/04_connect.svg" alt="">
                   </span>
-                  <h3>Connect</h3>
+                  <h3>Share</h3>
                 </div>
                 <p>Help us build the network of people and churches who can strengthen this work. Share our story, make introductions, and help connect us with partners who may want to pray, give, send, or go.</p>
               </li>
@@ -2221,8 +2469,8 @@
               </p>
             </div>
             <div class="actions">
-              <a class="button" href="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" target="_blank" rel="noopener noreferrer">Schedule a Conversation</a>
-              <a class="button secondary" href="https://giving.myamplify.io//app/giving/crosspoint" target="_blank" rel="noopener noreferrer">Give to Go Albany</a>
+              <a class="button secondary" href="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" target="_blank" rel="noopener noreferrer">Schedule a Conversation</a>
+              <a class="button" href="https://giving.myamplify.io//app/giving/crosspoint" target="_blank" rel="noopener noreferrer">Give to Go Albany</a>
             </div>
           </div>
         </div>
@@ -2360,7 +2608,7 @@
             </div>
             <div class="section-copy newsletter-intro">
               <p>
-                We send occasional updates about prayer needs, launch plans,
+                We send monthly updates about prayer needs, launch plans,
                 gatherings, and practical ways to support the plant.
               </p>
             </div>
