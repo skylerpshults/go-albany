@@ -495,6 +495,255 @@
         background: var(--parchment);
       }
 
+      .who-label {
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .who-label::after {
+        display: none;
+      }
+
+      .who-content {
+        gap: 20px;
+      }
+
+      .who-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 4.4vw, 4.4rem);
+        line-height: 0.95;
+      }
+
+      .who-mission {
+        margin: 0;
+        padding: 20px 22px;
+        border-radius: 20px;
+        background: #001254;
+        color: #ffffff;
+        font-size: 1.15rem;
+        line-height: 1.65;
+        box-shadow: 0 20px 40px rgba(0, 18, 84, 0.16);
+      }
+
+      .who-lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.02rem;
+        line-height: 1.72;
+      }
+
+      .dna-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 8px;
+      }
+
+      #who-we-are .section-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .dna-card {
+        display: grid;
+        gap: 12px;
+        align-content: start;
+        padding: 20px;
+        border-radius: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.12);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 20px 42px rgba(0, 18, 84, 0.08);
+      }
+
+      .dna-icon {
+        width: 58px;
+        height: 58px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #d9eef1;
+      }
+
+      .dna-icon svg {
+        width: 30px;
+        height: 30px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .dna-card strong {
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.08rem;
+        line-height: 1.15;
+      }
+
+      .dna-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.62;
+      }
+
+      .bethlehem-shell {
+        width: min(1200px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        gap: 28px;
+      }
+
+      .bethlehem-top {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .bethlehem-label {
+        margin: 0 0 10px;
+        color: var(--terracotta);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .bethlehem-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: clamp(2.7rem, 4.9vw, 4.8rem);
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+      }
+
+      .bethlehem-title::after {
+        display: none;
+      }
+
+      .bethlehem-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .bethlehem-mark-line {
+        width: 68px;
+        height: 4px;
+        border-radius: 999px;
+        background: var(--gold);
+      }
+
+      .bethlehem-mark svg {
+        width: 26px;
+        height: 26px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .bethlehem-intro {
+        display: grid;
+        gap: 16px;
+        padding-top: 4px;
+      }
+
+      .bethlehem-intro p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.72;
+      }
+
+      .bethlehem-bottom {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .bethlehem-card,
+      .bethlehem-image {
+        min-height: 320px;
+        border-radius: 18px;
+        border: 1px solid rgba(0, 18, 84, 0.12);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 14px 30px rgba(0, 18, 84, 0.06);
+      }
+
+      .bethlehem-card {
+        display: grid;
+        gap: 12px;
+        align-content: start;
+        padding: 20px;
+      }
+
+      .bethlehem-card-number {
+        color: var(--gold);
+        font-family: var(--font-display);
+        font-size: 0.98rem;
+        letter-spacing: 0.16em;
+        font-weight: 700;
+      }
+
+      .bethlehem-card h3 {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.22rem;
+        line-height: 1.15;
+      }
+
+      .bethlehem-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.62;
+      }
+
+      .bethlehem-icon-wrap {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #d9eef1;
+      }
+
+      .bethlehem-icon-wrap svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .bethlehem-image {
+        overflow: hidden;
+      }
+
+      .bethlehem-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
       #support {
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
@@ -707,6 +956,29 @@
           min-height: clamp(820px, 112vh, 1040px);
         }
 
+        #bethlehem .bethlehem-shell {
+          width: min(1120px, calc(100% - 32px));
+          gap: 20px;
+        }
+
+        #bethlehem .bethlehem-top {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        #bethlehem .bethlehem-bottom {
+          grid-template-columns: 1fr;
+        }
+
+        #bethlehem .bethlehem-card,
+        #bethlehem .bethlehem-image {
+          min-height: 0;
+        }
+
+        #bethlehem .bethlehem-image {
+          min-height: 280px;
+        }
+
         .hero-stage {
           position: sticky;
           top: 84px;
@@ -892,34 +1164,81 @@
 
       <section id="who-we-are" aria-labelledby="who-title">
         <div class="section-grid">
-          <h2 id="who-title">Who we are</h2>
-          <div class="section-copy">
-            <p>
-              Go Albany exists to center our lives on Jesus as we make disciples and
-              multiply churches.
+          <h2 id="who-title" class="who-label">Who we are</h2>
+          <div class="section-copy who-content">
+            <h3 class="who-title">A Gospel-Centered, Disciple-Making Church</h3>
+            <div class="who-mission">
+              Our aim is to center our whole lives on Jesus as we make disciples and multiply churches.
+            </div>
+            <p class="who-lead">
+              We want to plant a church where the gospel shapes what we believe, how we worship, how we live together, and how we engage our community. Our desire is to see people known, equipped, and sent to help others follow Jesus.
             </p>
-            <p>
-              The church we are pursuing will be rooted in Scripture, dependent on
-              prayer, committed to meaningful relationships, and focused on helping
-              people trust Jesus, obey Jesus, become like Jesus, and help others do
-              the same.
-            </p>
-            <div class="value-grid">
-              <article class="value-card">
-                <strong>Jesus-centered</strong>
-                <p>The life, death, and resurrection of Jesus stay at the center of preaching, worship, discipleship, and mission.</p>
+            <div class="dna-grid" aria-label="Church DNA">
+              <article class="dna-card">
+                <span class="dna-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 4v16M5 11h14M7 8l5-4 5 4" />
+                  </svg>
+                </span>
+                <strong>Gospel-Centered</strong>
+                <p>The life, death, and resurrection of Jesus remain at the center of our preaching, worship, discipleship, and mission.</p>
               </article>
-              <article class="value-card">
-                <strong>Prayer-shaped</strong>
-                <p>We want decisions, gatherings, and relationships to be marked by dependence on God.</p>
+              <article class="dna-card">
+                <span class="dna-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 6h16v12H4z" />
+                    <path d="M8 6v12M12 6v12M16 6v12" />
+                    <path d="M4 10h16" />
+                  </svg>
+                </span>
+                <strong>Biblically Faithful</strong>
+                <p>We trust the authority and sufficiency of Scripture and want God’s Word to shape everyday life.</p>
               </article>
-              <article class="value-card">
-                <strong>Disciple-making</strong>
-                <p>We are building a church that develops disciples, leaders, and future church planters.</p>
+              <article class="dna-card">
+                <span class="dna-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M7 10.5c0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 4-5 8.5-5 8.5S7 14.5 7 10.5z" />
+                    <path d="M9.5 11.5c1.2-1 3.8-1 5 0" />
+                    <path d="M7 20c1.8-2 3.4-3 5-3s3.2 1 5 3" />
+                  </svg>
+                </span>
+                <strong>Prayerfully Dependent</strong>
+                <p>We believe lasting spiritual fruit comes from God, so prayer shapes our decisions, relationships, gatherings, and mission.</p>
               </article>
-              <article class="value-card">
-                <strong>Multiplying</strong>
-                <p>Healthy churches should not exist only for themselves; they should send people and resources outward.</p>
+              <article class="dna-card">
+                <span class="dna-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 12l8-7 8 7" />
+                    <path d="M6 10v9h12v-9" />
+                    <path d="M9 19v-4a3 3 0 0 1 6 0v4" />
+                    <path d="M10 14c1.2 0 2 .8 2 2 0-1.2.8-2 2-2" />
+                  </svg>
+                </span>
+                <strong>Relationally Invested</strong>
+                <p>Discipleship happens through life together. We pursue hospitality, honest relationships, mutual care, and meaningful community.</p>
+              </article>
+              <article class="dna-card">
+                <span class="dna-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 12h10" />
+                    <path d="M11 8l5 4-5 4" />
+                    <path d="M15 6l5 6-5 6" />
+                  </svg>
+                </span>
+                <strong>Missionally Engaged</strong>
+                <p>We equip every believer to live as a missionary in their individual spheres of influence.</p>
+              </article>
+              <article class="dna-card">
+                <span class="dna-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 20V8" />
+                    <path d="M12 8c0-2.2-1.8-4-4-4v4c0 2.2 1.8 4 4 4" />
+                    <path d="M12 8c0-2.2 1.8-4 4-4v4c0 2.2-1.8 4-4 4" />
+                    <path d="M12 14c2 0 4 1.5 4 4h-8c0-2.5 2-4 4-4z" />
+                  </svg>
+                </span>
+                <strong>Multiplication Focused</strong>
+                <p>We develop disciples who make disciples, leaders who develop leaders, and a church prepared to help plant more churches.</p>
               </article>
             </div>
           </div>
@@ -927,24 +1246,76 @@
       </section>
 
       <section id="bethlehem" aria-labelledby="bethlehem-title">
-        <div class="section-grid">
-          <h2 id="bethlehem-title">Why Bethlehem</h2>
-          <div class="section-copy">
-            <p>
-              Bethlehem gives us a practical and strategic starting point. It is
-              close to Albany, connected to the wider region, and full of people
-              whose lives are shaped by work, family, school, and long commutes.
-            </p>
-            <p>
-              The area is strong on paper, but many people remain disconnected from
-              a healthy local church. We want to enter with genuine affection,
-              listen well, open our home, and become a faithful presence over time.
-            </p>
-            <ul class="support-list">
-              <li>A place to plant deeply in one community while remaining connected to Albany and the Capital Region.</li>
-              <li>A community with more than 135,500 people within a fifteen-minute drive.</li>
-              <li>A long-term opportunity to develop disciples and leaders who can be sent throughout the region.</li>
-            </ul>
+        <div class="bethlehem-shell">
+          <div class="bethlehem-top">
+            <div>
+              <p class="bethlehem-label">Why Bethlehem</p>
+              <h2 id="bethlehem-title" class="bethlehem-title">A Strategic Starting Point for the Gospel</h2>
+              <div class="bethlehem-mark" aria-hidden="true">
+                <span class="bethlehem-mark-line"></span>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 20V10" />
+                  <path d="M9 12c0-3 1.5-5 3-5s3 2 3 5c0 1.8-1.3 3.7-3 5-1.7-1.3-3-3.2-3-5z" />
+                  <path d="M8 14c-1-1-2.3-1.7-4-2" />
+                  <path d="M16 14c1-1 2.3-1.7 4-2" />
+                </svg>
+              </div>
+            </div>
+            <div class="bethlehem-intro">
+              <p>
+                Bethlehem gives us a practical and strategic starting point. It is close to Albany, connected to the wider region, and full of people whose lives are shaped by work, family, school, and long commutes.
+              </p>
+              <p>
+                The area is strong on paper, but many people remain disconnected from a healthy local church. We want to enter with genuine affection, listen well, open our home, and become a faithful presence over time.
+              </p>
+            </div>
+          </div>
+
+          <div class="bethlehem-bottom" aria-label="Bethlehem highlights">
+            <article class="bethlehem-card">
+              <span class="bethlehem-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 11.5L12 5l8 6.5" />
+                  <path d="M6.5 10.5V19h11V10.5" />
+                  <path d="M9 19v-4h6v4" />
+                  <path d="M9 14h6" />
+                </svg>
+              </span>
+              <span class="bethlehem-card-number">01</span>
+              <h3>A Place to Plant Deeply</h3>
+              <p>Bethlehem gives us a community where we can build relationships, serve our neighbors, and establish a church while remaining closely connected to Albany and the wider Capital Region.</p>
+            </article>
+
+            <article class="bethlehem-card">
+              <span class="bethlehem-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 18c1.6-3 4.1-4.5 7-4.5s5.4 1.5 7 4.5" />
+                  <path d="M7.5 11.5a2.5 2.5 0 1 0 0-.1" />
+                  <path d="M16.5 11.5a2.5 2.5 0 1 0 0-.1" />
+                  <path d="M3.5 18h17" />
+                </svg>
+              </span>
+              <span class="bethlehem-card-number">02</span>
+              <h3>A Community with Opportunity</h3>
+              <p>More than 135,500 people live within a fifteen-minute drive, including families, students, professionals, educators, government employees, healthcare workers, and retirees.</p>
+            </article>
+
+            <article class="bethlehem-card">
+              <span class="bethlehem-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3v18" />
+                  <path d="M12 3l4 4-4 1.8-4-1.8z" />
+                  <path d="M12 21l4-6-4-2-4 2z" />
+                </svg>
+              </span>
+              <span class="bethlehem-card-number">03</span>
+              <h3>A Long-Term Opportunity</h3>
+              <p>Bethlehem provides a strategic place to develop disciples and leaders who can be sent throughout the Capital Region and help establish more healthy churches.</p>
+            </article>
+
+            <figure class="bethlehem-image">
+              <img src="assets/pictures/AdobeStock_214490358.jpeg" alt="Albany skyline at dusk over the river">
+            </figure>
           </div>
         </div>
       </section>
@@ -1045,14 +1416,10 @@
             <!-- Begin Constant Contact Inline Form Code -->
             <div class="ctct-inline-form" data-form-id="e37576d9-b0ba-4f4d-b5c8-4d1f52ae3d47"></div>
             <!-- End Constant Contact Inline Form Code -->
-            <div class="panel-card" style="margin-top: 16px;">
-              <p class="panel-label">Calendly placeholder</p>
-              <h3>Schedule a conversation here later</h3>
-              <p>
-                This space is reserved for a future Calendly embed so visitors can
-                book a time without leaving the page.
-              </p>
-            </div>
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
           </div>
         </div>
       </section>
