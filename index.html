@@ -1511,7 +1511,49 @@
       }
 
       .partner-logo.text-only {
-        grid-template-rows: auto auto;
+        min-height: 0;
+        grid-template-rows: auto auto auto;
+        align-self: start;
+        gap: 9px;
+        padding: 24px 22px;
+      }
+
+      .partner-logo.text-only .partner-logo-label::after {
+        content: "";
+        width: 42px;
+        height: 3px;
+        display: block;
+        margin: 10px auto 0;
+        border-radius: 999px;
+        background: var(--gold);
+      }
+
+      .partner-invite-copy {
+        max-width: 46ch;
+        line-height: 1.5;
+      }
+
+      .partner-invite-link {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+        padding: 8px 16px;
+        border: 1px solid rgba(0, 18, 84, 0.14);
+        border-radius: 999px;
+        background: rgba(252, 196, 0, 0.14);
+        color: var(--ink);
+        font-size: 0.88rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+      }
+
+      .partner-invite-link:hover {
+        border-color: rgba(252, 196, 0, 0.7);
+        background: rgba(252, 196, 0, 0.24);
+        transform: translateY(-1px);
       }
 
       .partner-logo-label {
@@ -2549,6 +2591,12 @@
         .partner-logo {
           min-height: 196px;
         }
+
+        .partner-logo.text-only {
+          min-height: 0;
+          gap: 8px;
+          padding: 20px 18px;
+        }
       }
     </style>
   </head>
@@ -3113,7 +3161,8 @@
             </article>
             <article class="partner-logo text-only">
               <div class="partner-logo-label">And More</div>
-              <div class="partner-logo-sub">Churches and partners coming alongside the work</div>
+              <div class="partner-logo-sub partner-invite-copy">Is your church interested in coming alongside the work? We’d love to connect and explore what a partnership with Go Albany could look like.</div>
+              <a class="partner-invite-link" href="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" target="_blank" rel="noopener noreferrer">Connect With Us</a>
             </article>
           </div>
         </div>
