@@ -129,6 +129,10 @@
         color: var(--ink);
       }
 
+      .nav-toggle {
+        display: none;
+      }
+
       .nav-cta {
         background: var(--terracotta);
         color: #ffffff !important;
@@ -1467,15 +1471,16 @@
 
       .partner-logos {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
       }
 
       .partner-logo {
-        min-height: 150px;
+        min-height: 210px;
         display: grid;
+        grid-template-rows: 84px auto auto;
         gap: 10px;
-        align-items: center;
+        align-content: center;
         justify-items: center;
         padding: 18px;
         border: 1px solid rgba(0, 18, 84, 0.08);
@@ -1485,17 +1490,28 @@
         text-align: center;
       }
 
-      .partner-logo img {
+      .partner-logo-mark {
+        width: 100%;
+        height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .partner-logo-mark img {
         width: 100%;
         max-width: 230px;
-        max-height: 74px;
+        height: 100%;
         display: block;
         object-fit: contain;
       }
 
-      .partner-logo.stacked img {
+      .partner-logo.stacked .partner-logo-mark img {
         max-width: 120px;
-        max-height: 120px;
+      }
+
+      .partner-logo.text-only {
+        grid-template-rows: auto auto;
       }
 
       .partner-logo-label {
@@ -1922,39 +1938,122 @@
       }
 
       @media (max-width: 720px) {
+        html {
+          scroll-padding-top: 80px;
+        }
+
+        body {
+          overflow-x: clip;
+        }
+
         nav {
+          position: relative;
+          width: calc(100% - 24px);
           min-height: 72px;
-          align-items: flex-start;
-          flex-direction: column;
-          justify-content: center;
-          gap: 10px;
-          padding: 12px 0;
+          align-items: center;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 12px;
+          padding: 6px 0;
         }
 
         .brand img {
-          width: 72px;
-          height: 72px;
+          width: 58px;
+          height: 58px;
+        }
+
+        .nav-toggle {
+          width: 48px;
+          height: 48px;
+          flex: 0 0 48px;
+          display: grid;
+          place-content: center;
+          gap: 5px;
+          padding: 0;
+          border: 1px solid rgba(0, 18, 84, 0.14);
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.94);
+          color: var(--ink);
+          cursor: pointer;
+          box-shadow: 0 6px 18px rgba(0, 18, 84, 0.08);
+        }
+
+        .nav-toggle-bar {
+          width: 21px;
+          height: 2px;
+          display: block;
+          border-radius: 999px;
+          background: currentColor;
+          transition: transform 180ms ease, opacity 180ms ease;
+        }
+
+        nav[data-menu-open="true"] .nav-toggle-bar:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        nav[data-menu-open="true"] .nav-toggle-bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        nav[data-menu-open="true"] .nav-toggle-bar:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
         }
 
         .nav-links {
+          position: absolute;
+          top: calc(100% + 1px);
+          right: 0;
+          left: 0;
           width: 100%;
-          flex-wrap: wrap;
-          gap: 8px;
-          font-size: 0.92rem;
+          max-height: 0;
+          margin: 0;
+          padding: 0 10px;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr);
+          gap: 4px;
+          overflow: hidden;
+          visibility: hidden;
+          opacity: 0;
+          transform: translateY(-8px);
+          border: 1px solid transparent;
+          border-radius: 0 0 18px 18px;
+          background: rgba(255, 255, 255, 0.98);
+          box-shadow: 0 18px 38px rgba(0, 18, 84, 0.14);
+          font-size: 1rem;
+          pointer-events: none;
+          transition: max-height 220ms ease, padding 220ms ease, opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+        }
+
+        nav[data-menu-open="true"] .nav-links {
+          max-height: calc(100vh - 84px);
+          padding: 10px;
+          overflow-y: auto;
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
+          border-color: rgba(0, 18, 84, 0.1);
+          pointer-events: auto;
         }
 
         .nav-links a {
-          min-height: 38px;
-          padding: 0 12px;
+          min-width: 0;
+          min-height: 48px;
+          justify-content: flex-start;
+          padding: 8px 16px;
+          line-height: 1.2;
+          text-align: left;
+          white-space: normal;
         }
 
         .nav-cta {
-          padding: 0 14px;
+          justify-content: center !important;
+          margin-top: 2px;
+          padding: 8px 16px;
         }
 
         .hero {
           min-height: auto;
-          padding: 22px 0 28px;
+          padding: 0;
         }
 
         .hero-layout {
@@ -1966,7 +2065,244 @@
         }
 
         section {
-          padding: 56px 0;
+          padding: clamp(40px, 10vw, 48px) 0;
+        }
+
+        #who-we-are {
+          padding-top: clamp(24px, 7vw, 32px);
+        }
+
+        .section-grid,
+        .bethlehem-shell,
+        #bethlehem .bethlehem-shell,
+        .discipleship-shell,
+        .partners-shell,
+        .support-shell,
+        .newsletter-shell {
+          width: calc(100% - 24px);
+        }
+
+        .section-grid,
+        .discipleship-shell,
+        .partners-shell,
+        .support-shell,
+        .newsletter-shell,
+        #bethlehem .bethlehem-shell {
+          gap: clamp(20px, 6vw, 26px);
+        }
+
+        h1 {
+          font-size: clamp(2.5rem, 13vw, 3.7rem);
+          line-height: 0.94;
+          text-wrap: balance;
+        }
+
+        h2,
+        .who-title,
+        .discipleship-title {
+          font-size: clamp(1.9rem, 8.5vw, 2.65rem);
+          line-height: 1.04;
+          overflow-wrap: normal;
+          text-wrap: balance;
+        }
+
+        .panel-card h3,
+        .bethlehem-card h3,
+        .support-list h3,
+        .funding-chart h3,
+        .discipleship-step h3 {
+          font-size: clamp(1.1rem, 4.8vw, 1.3rem);
+          line-height: 1.16;
+          text-wrap: balance;
+        }
+
+        .discipleship-tool h4,
+        .partner-logo-label {
+          font-size: clamp(1rem, 4.4vw, 1.12rem);
+          line-height: 1.18;
+          text-wrap: balance;
+        }
+
+        .section-copy p,
+        .bethlehem-intro p,
+        .dna-card p,
+        .bethlehem-card p,
+        .support-list p,
+        .discipleship-step p,
+        .discipleship-tool p,
+        .funding-chart-note,
+        .giving-note p {
+          max-width: 65ch;
+          font-size: clamp(0.96rem, 3.7vw, 1rem);
+          line-height: 1.6;
+        }
+
+        .who-label,
+        .bethlehem-label,
+        .newsletter-label,
+        .support-label,
+        .partners-label,
+        .discipleship-label {
+          font-size: clamp(0.76rem, 3.2vw, 0.86rem);
+          line-height: 1.3;
+          letter-spacing: 0.14em;
+        }
+
+        .who-mission {
+          width: 100%;
+          padding: clamp(16px, 4.5vw, 19px);
+          font-size: clamp(1rem, 4vw, 1.06rem);
+          line-height: 1.55;
+        }
+
+        .who-lead {
+          font-size: clamp(0.98rem, 3.8vw, 1.02rem);
+          line-height: 1.62;
+        }
+
+        .section-copy,
+        .who-content,
+        .bethlehem-intro,
+        .discipleship-header,
+        .newsletter-top,
+        .support-top,
+        .partners-top {
+          gap: clamp(14px, 4.5vw, 18px);
+        }
+
+        .dna-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .partner-logos {
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+          gap: 12px;
+          align-items: stretch;
+        }
+
+        .panel-card,
+        .dna-card,
+        .bethlehem-card,
+        .support-list li,
+        .funding-chart,
+        .discipleship-step,
+        .discipleship-tool,
+        .partner-logo {
+          min-width: 0;
+          max-width: 100%;
+          padding: clamp(16px, 4.5vw, 18px);
+        }
+
+        .partner-logo {
+          min-height: 200px;
+        }
+
+        .dna-card,
+        .bethlehem-card,
+        .support-list li,
+        .funding-chart,
+        .discipleship-step,
+        .discipleship-tool {
+          gap: clamp(10px, 3.5vw, 14px);
+        }
+
+        .panel-card *,
+        .dna-card *,
+        .bethlehem-card *,
+        .support-list li *,
+        .funding-chart *,
+        .discipleship-step *,
+        .discipleship-tool *,
+        .partner-logo * {
+          min-width: 0;
+          overflow-wrap: break-word;
+        }
+
+        .bethlehem-icon-wrap {
+          flex: 0 0 52px;
+          width: 52px;
+          height: 52px;
+        }
+
+        .dna-card-heading,
+        .bethlehem-card-heading,
+        .support-card-header,
+        .discipleship-tool-heading {
+          align-items: flex-start;
+        }
+
+        .dna-icon,
+        .support-card-icon,
+        .discipleship-tool-icon {
+          flex-basis: 52px;
+          width: 52px;
+          height: 52px;
+        }
+
+        .funding-goal-plot {
+          grid-template-columns: 54px minmax(0, 1fr);
+          gap: 8px;
+        }
+
+        .funding-transition-list .funding-transition-row {
+          grid-template-columns: 48px minmax(0, 1fr);
+          gap: 8px;
+        }
+
+        .funding-transition-row > strong {
+          font-size: 0.82rem;
+        }
+
+        .funding-chart .funding-transition-bar span {
+          font-size: 0.76rem;
+        }
+
+        .funding-transition-scale {
+          margin-left: 56px;
+        }
+
+        .funding-progress {
+          padding: 16px;
+        }
+
+        .funding-progress-main {
+          font-size: clamp(1.4rem, 6.5vw, 1.8rem);
+          line-height: 1.08;
+          overflow-wrap: break-word;
+          text-wrap: balance;
+        }
+
+        .funding-goal-legend,
+        .funding-transition-legend {
+          align-items: flex-start;
+          gap: 8px 14px;
+          font-size: 0.84rem;
+        }
+
+        .funding-goal-stack {
+          width: min(82%, 220px);
+        }
+
+        .funding-goal-seed,
+        .funding-goal-initial {
+          font-size: 0.86rem;
+        }
+
+        .giving-note {
+          grid-template-columns: 34px minmax(0, 1fr);
+          gap: 10px;
+          padding: 13px;
+        }
+
+        .giving-note-icon {
+          width: 34px;
+          height: 34px;
+        }
+
+        .actions {
+          gap: 10px;
+          margin-top: 20px;
         }
 
         .form-row {
@@ -1975,25 +2311,82 @@
 
         .button {
           width: 100%;
+          min-height: 52px;
+          padding: 10px 18px;
+          font-size: clamp(0.98rem, 4vw, 1.04rem);
+          line-height: 1.2;
+          text-align: center;
+        }
+
+        .newsletter-forms {
+          gap: 12px;
+        }
+
+        .newsletter-panel {
+          width: 100%;
+          min-width: 0;
+          padding: 12px;
+          overflow: hidden;
+        }
+
+        .newsletter-panel .ctct-inline-form,
+        .newsletter-panel .ctct-form-defaults,
+        .newsletter-panel .ctct-form-wrapper,
+        .newsletter-panel .calendly-inline-widget,
+        .newsletter-panel iframe {
+          width: 100% !important;
+          min-width: 0 !important;
+          max-width: 100% !important;
+        }
+
+        .newsletter-panel .calendly-inline-widget {
+          height: min(680px, 78svh) !important;
+          min-height: 560px !important;
+        }
+
+        input,
+        textarea,
+        select {
+          max-width: 100%;
+          font-size: 1rem;
         }
 
         .hero-stage {
           position: relative;
           top: auto;
-          display: grid;
-          min-height: auto;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          grid-auto-rows: 160px;
-          gap: 8px;
+          display: block;
+          width: 100%;
+          min-height: 0;
+          height: clamp(250px, 76vw, 330px);
+          overflow: hidden;
         }
 
         .video-frame {
-          position: relative;
-          inset: auto;
-          width: 100%;
-          grid-area: 1 / 1 / span 2 / span 2;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          box-sizing: border-box;
+          width: min(80vw, 360px);
+          max-width: calc(100vw - 32px);
+          height: auto;
           aspect-ratio: 16 / 9;
-          transform: none;
+          border-width: 4px;
+          transform: translate(-50%, -50%);
+          z-index: 5;
+        }
+
+        .video-frame iframe {
+          width: 150%;
+          height: 150%;
+          transform: scale(0.666667);
+          transform-origin: top left;
+        }
+
+        .video-caption {
+          top: 10px;
+          left: 10px;
+          padding: 7px 10px;
+          font-size: 0.62rem;
         }
 
         .media-float.placeholder-1,
@@ -2004,47 +2397,154 @@
         .media-float.placeholder-6,
         .media-float.placeholder-7,
         .media-float.placeholder-8 {
-          position: relative;
-          inset: auto;
-          width: 100%;
-          height: auto;
-          transform: none;
-          grid-area: auto;
+          position: absolute;
+          width: 43%;
+          height: 48%;
+          border-width: 2px;
+          opacity: 0.9;
+          z-index: 1;
         }
 
         .media-float.placeholder-1 {
-          grid-area: 3 / 1;
-          aspect-ratio: 4 / 3;
+          top: 0;
+          left: 0;
+          width: 32%;
+          height: 55%;
+          transform: rotate(0deg);
         }
 
         .media-float.placeholder-2 {
-          grid-area: 3 / 2;
-          aspect-ratio: 4 / 3;
+          top: 0;
+          left: 30%;
+          width: 42%;
+          height: 52%;
+          transform: rotate(0deg);
         }
 
         .media-float.placeholder-3 {
-          grid-area: 4 / 1 / span 1 / span 2;
-          aspect-ratio: 16 / 9;
+          top: 0;
+          right: 0;
+          width: 30%;
+          height: 54%;
+          transform: rotate(0deg);
         }
 
         .media-float.placeholder-4 {
-          grid-area: 5 / 1;
-          aspect-ratio: 4 / 3;
+          top: auto;
+          bottom: 0;
+          left: 0;
+          width: 34%;
+          height: 51%;
+          transform: rotate(0deg);
         }
 
         .media-float.placeholder-5 {
-          grid-area: 5 / 2;
-          aspect-ratio: 4 / 3;
+          top: auto;
+          bottom: 0;
+          left: 32%;
+          width: 40%;
+          height: 52%;
+          transform: rotate(0deg);
         }
 
         .media-float.placeholder-6 {
-          grid-area: 6 / 1 / span 1 / span 2;
-          aspect-ratio: 16 / 9;
+          top: auto;
+          right: 0;
+          bottom: 0;
+          width: 30%;
+          height: 50%;
+          transform: rotate(0deg);
         }
 
         .media-float.placeholder-7,
         .media-float.placeholder-8 {
           display: none;
+        }
+
+        .bethlehem-map-caption {
+          position: static;
+          min-height: 68px;
+          padding: 12px 14px;
+          font-size: 0.9rem;
+          line-height: 1.3;
+        }
+
+        #bethlehem .bethlehem-map-visual {
+          height: auto;
+          aspect-ratio: 4 / 3;
+          background: #ffffff;
+        }
+
+        #bethlehem .bethlehem-map-visual img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .discipleship-pathway {
+          gap: 14px;
+        }
+
+        .discipleship-step {
+          grid-template-columns: 58px minmax(0, 1fr);
+          grid-template-rows: auto auto auto;
+          align-items: start;
+        }
+
+        .discipleship-step-header {
+          grid-column: 1;
+          grid-row: 1 / span 3;
+          align-self: start;
+        }
+
+        .discipleship-step-title,
+        .discipleship-subtitle,
+        .discipleship-step > p {
+          grid-column: 2;
+        }
+
+        .discipleship-step-title {
+          grid-row: 1;
+        }
+
+        .discipleship-subtitle {
+          grid-row: 2;
+        }
+
+        .discipleship-step > p {
+          grid-row: 3;
+        }
+
+        .discipleship-icon {
+          width: 58px;
+          height: 58px;
+          flex-basis: 58px;
+        }
+
+        .discipleship-icon img {
+          width: 36px;
+          height: 36px;
+        }
+
+        footer {
+          padding: 22px 12px 28px;
+        }
+
+        footer p {
+          margin: 0;
+          overflow-wrap: anywhere;
+          font-size: 0.9rem;
+          line-height: 1.5;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .partner-logos {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .partner-logo {
+          min-height: 196px;
         }
       }
     </style>
@@ -2055,7 +2555,12 @@
         <a class="brand" href="#">
           <img src="assets/GA_Logo_Horizontal_Color.svg" alt="" aria-hidden="true">
         </a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <div class="nav-links" id="primary-navigation">
           <a href="#who-we-are">Who We Are</a>
           <a href="#bethlehem">Starting Point</a>
           <a href="#discipleship">Discipleship</a>
@@ -2465,7 +2970,7 @@
                 <img src="assets/icons/06_money.svg" alt="">
               </span>
               <p>
-                For added accountability, Giving to Go Albany is currently processed through Cross Point Fellowship, which is overseeing and administering our finances. When giving, please be sure to <strong>designate your gift to “Go Albany”</strong> so that it is directed to this ministry.
+                For added accountability, Giving to Go Albany is currently processed through Cross Point Fellowship, which is overseeing and administering our finances. When giving, please select <strong>“Go Albany - Church planting” in the first dropdown</strong> so that your gift is directed to this ministry.
               </p>
             </div>
             <div class="actions">
@@ -2576,22 +3081,34 @@
 
           <div class="partner-logos" aria-label="Current partners and endorsers">
             <article class="partner-logo">
+              <div class="partner-logo-mark">
+                <img src="assets/ChurchLogos/NAMB (1).png" alt="North American Mission Board logo">
+              </div>
               <div class="partner-logo-label">North American Mission Board</div>
               <div class="partner-logo-sub">Send Network</div>
             </article>
             <article class="partner-logo">
+              <div class="partner-logo-mark">
+                <img src="assets/ChurchLogos/Crosspointny logo.jpg" alt="Cross Point Fellowship logo">
+              </div>
               <div class="partner-logo-label">Cross Point Fellowship</div>
               <div class="partner-logo-sub">Kingston, NY</div>
             </article>
             <article class="partner-logo">
+              <div class="partner-logo-mark">
+                <img src="assets/ChurchLogos/image (3).png" alt="Community Bible Church logo">
+              </div>
               <div class="partner-logo-label">Community Bible Church</div>
               <div class="partner-logo-sub">High Point, NC</div>
             </article>
             <article class="partner-logo">
+              <div class="partner-logo-mark">
+                <img src="assets/ChurchLogos/image (2).png" alt="River of Life Church logo">
+              </div>
               <div class="partner-logo-label">River of Life</div>
               <div class="partner-logo-sub">Guilderland, NY</div>
             </article>
-            <article class="partner-logo">
+            <article class="partner-logo text-only">
               <div class="partner-logo-label">And More</div>
               <div class="partner-logo-sub">Churches and partners coming alongside the work</div>
             </article>
@@ -2634,6 +3151,53 @@
       <p>&copy; 2026 Go Albany | goalbanynewyork@gmail.com</p>
     </footer>
     <script>
+      (() => {
+        const nav = document.querySelector("header nav");
+        const toggle = nav?.querySelector(".nav-toggle");
+        const menu = nav?.querySelector(".nav-links");
+
+        if (!nav || !toggle || !menu) {
+          return;
+        }
+
+        const mobileQuery = window.matchMedia("(max-width: 720px)");
+
+        const setMenuOpen = (isOpen, returnFocus = false) => {
+          nav.dataset.menuOpen = String(isOpen);
+          toggle.setAttribute("aria-expanded", String(isOpen));
+          toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+
+          if (returnFocus) {
+            toggle.focus();
+          }
+        };
+
+        setMenuOpen(false);
+
+        toggle.addEventListener("click", () => {
+          const isOpen = nav.dataset.menuOpen === "true";
+          setMenuOpen(!isOpen);
+        });
+
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => setMenuOpen(false));
+        });
+
+        document.addEventListener("click", (event) => {
+          if (mobileQuery.matches && nav.dataset.menuOpen === "true" && !nav.contains(event.target)) {
+            setMenuOpen(false);
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && nav.dataset.menuOpen === "true") {
+            setMenuOpen(false, true);
+          }
+        });
+
+        mobileQuery.addEventListener("change", () => setMenuOpen(false));
+      })();
+
       (() => {
         const scene = document.querySelector(".hero-scroll");
 
