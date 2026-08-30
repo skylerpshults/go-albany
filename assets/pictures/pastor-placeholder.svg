@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 820" role="img" aria-labelledby="title desc">
+  <title id="title">Pastor photo placeholder</title>
+  <desc id="desc">A simple silhouette marking where a pastor headshot will be added.</desc>
+  <rect width="720" height="820" fill="#c3e5e2"/>
+  <circle cx="360" cy="284" r="116" fill="#ffffff" opacity=".92"/>
+  <path d="M142 720c16-152 101-242 218-242s202 90 218 242" fill="#ffffff" opacity=".92"/>
+  <path d="M126 126h468M126 694h468" stroke="#001254" stroke-width="4" opacity=".16"/>
+  <text x="360" y="772" fill="#001254" font-family="Georgia, serif" font-size="28" text-anchor="middle" letter-spacing="3">PASTOR PHOTO</text>
+</svg>

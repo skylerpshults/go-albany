@@ -1036,56 +1036,6 @@
         gap: 12px;
       }
 
-      .funding-progress {
-        display: grid;
-        gap: 10px;
-        max-width: 860px;
-        margin-top: 8px;
-        padding: 18px 20px;
-        border-radius: 18px;
-        border: 1px solid rgba(0, 18, 84, 0.1);
-        background: rgba(255, 255, 255, 0.9);
-      }
-
-      .funding-progress-label {
-        margin: 0;
-        color: var(--terracotta);
-        font-size: 0.88rem;
-        font-weight: 800;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-      }
-
-      .funding-progress-main {
-        color: var(--ink);
-        font-family: var(--font-display);
-        font-size: clamp(1.7rem, 2.8vw, 2.4rem);
-        line-height: 1;
-      }
-
-      .funding-progress-sub {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.98rem;
-        line-height: 1.55;
-      }
-
-      .funding-progress-bar {
-        width: 100%;
-        height: 12px;
-        border-radius: 999px;
-        overflow: hidden;
-        background: rgba(0, 18, 84, 0.08);
-      }
-
-      .funding-progress-bar span {
-        display: block;
-        width: var(--funding-progress, 62%);
-        height: 100%;
-        border-radius: inherit;
-        background: linear-gradient(90deg, var(--terracotta), var(--gold));
-      }
-
       .funding-charts {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1467,6 +1417,189 @@
 
       .partners-copy {
         padding-top: 4px;
+      }
+
+      .testimonial-carousel {
+        position: relative;
+        display: grid;
+        gap: 16px;
+      }
+
+      .testimonial-viewport {
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        border-radius: 22px;
+        box-shadow: 0 18px 44px rgba(0, 18, 84, 0.08);
+      }
+
+      .testimonial-viewport::-webkit-scrollbar {
+        display: none;
+      }
+
+      .testimonial-viewport.is-jumping {
+        scroll-behavior: auto;
+      }
+
+      .testimonial-slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        display: grid;
+        grid-template-columns: minmax(200px, 0.62fr) minmax(0, 1.38fr);
+        height: clamp(270px, 24vw, 320px);
+        overflow: hidden;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        border: 1px solid rgba(0, 18, 84, 0.08);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.96);
+      }
+
+      .testimonial-photo {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        display: block;
+        object-fit: cover;
+      }
+
+      .testimonial-content {
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        align-content: stretch;
+        gap: 10px;
+        min-height: 0;
+        padding: clamp(16px, 2.4vw, 26px);
+      }
+
+      .testimonial-quote {
+        position: relative;
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        min-height: 0;
+        padding-right: 10px;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        scrollbar-color: rgba(0, 18, 84, 0.2) transparent;
+        scrollbar-width: thin;
+        font-size: clamp(1.02rem, 1.35vw, 1.28rem);
+        line-height: 1.38;
+        text-wrap: balance;
+      }
+
+      .testimonial-quote::before {
+        content: "\201C";
+        display: block;
+        height: 16px;
+        margin-bottom: 3px;
+        color: var(--terracotta);
+        font-size: 2.7rem;
+        line-height: 0.8;
+      }
+
+      .testimonial-pastor {
+        display: grid;
+        gap: 2px;
+        padding-top: 8px;
+        border-top: 2px solid rgba(252, 196, 0, 0.7);
+      }
+
+      .testimonial-name {
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        line-height: 1.2;
+      }
+
+      .testimonial-role,
+      .testimonial-location {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .testimonial-role {
+        font-weight: 700;
+      }
+
+      .testimonial-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+      }
+
+      .testimonial-arrow,
+      .testimonial-dot {
+        display: inline-grid;
+        place-items: center;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+      }
+
+      .testimonial-arrow {
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(0, 18, 84, 0.14);
+        border-radius: 50%;
+        background: #ffffff;
+        color: var(--ink);
+        font-size: 1.15rem;
+        transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+      }
+
+      .testimonial-arrow:hover:not(:disabled) {
+        border-color: var(--gold);
+        background: rgba(252, 196, 0, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .testimonial-arrow:disabled {
+        cursor: default;
+        opacity: 0.35;
+      }
+
+      .testimonial-dots {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .testimonial-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(0, 18, 84, 0.2);
+        transition: background 180ms ease, transform 180ms ease;
+      }
+
+      .testimonial-dot[aria-current="true"] {
+        background: var(--terracotta);
+        transform: scale(1.25);
+      }
+
+      .testimonial-arrow:focus-visible,
+      .testimonial-dot:focus-visible,
+      .testimonial-viewport:focus-visible {
+        outline: 3px solid rgba(255, 134, 5, 0.45);
+        outline-offset: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .testimonial-viewport {
+          scroll-behavior: auto;
+        }
+
+        .testimonial-arrow,
+        .testimonial-dot {
+          transition: none;
+        }
       }
 
       .partner-logos {
@@ -1995,6 +2128,47 @@
       }
 
       @media (max-width: 720px) {
+        .testimonial-carousel {
+          gap: 14px;
+        }
+
+        .testimonial-slide {
+          grid-template-columns: 1fr;
+          grid-template-rows: 105px 290px;
+          height: 395px;
+          min-height: 0;
+        }
+
+        .testimonial-photo {
+          height: 105px;
+          min-height: 0;
+          object-position: center 28%;
+        }
+
+        .testimonial-content {
+          gap: 9px;
+          padding: 16px 18px;
+        }
+
+        .testimonial-quote {
+          font-size: clamp(0.98rem, 4.3vw, 1.12rem);
+          line-height: 1.35;
+        }
+
+        .testimonial-quote::before {
+          height: 15px;
+          font-size: 2.6rem;
+        }
+
+        .testimonial-controls {
+          gap: 14px;
+        }
+
+        .testimonial-arrow {
+          width: 36px;
+          height: 36px;
+        }
+
         html {
           scroll-padding-top: 80px;
         }
@@ -2328,17 +2502,6 @@
 
         .funding-transition-scale {
           margin-left: 56px;
-        }
-
-        .funding-progress {
-          padding: 16px;
-        }
-
-        .funding-progress-main {
-          font-size: clamp(1.4rem, 6.5vw, 1.8rem);
-          line-height: 1.08;
-          overflow-wrap: break-word;
-          text-wrap: balance;
         }
 
         .funding-goal-legend,
@@ -3066,15 +3229,6 @@
               Our goal is not simply to fund a launch. We are seeking to establish a healthy church with lasting roots in the Capital Region, while also setting aside resources that can help future church planting beyond the first work.
             </p>
 
-            <div class="funding-progress" style="--funding-progress: 43%;">
-              <p class="funding-progress-label">Pledged So Far</p>
-              <div class="funding-progress-main">$130,000 of $300,000</div>
-              <p class="funding-progress-sub">
-                Help establish the first church and seed the next.
-              </p>
-              <div class="funding-progress-bar" aria-hidden="true"><span></span></div>
-            </div>
-
             <div class="funding-charts" aria-label="Partnership funding charts">
               <article class="funding-chart funding-goal-chart">
                 <h3>Funding the First Church &mdash; Seeding the Next</h3>
@@ -3153,6 +3307,59 @@
               <p>
                 God has already surrounded this work with churches, ministry leaders, and partners who are praying, encouraging, giving, and helping us prepare for what is ahead. We are deeply grateful for those who have chosen to come alongside Go Albany.
               </p>
+            </div>
+          </div>
+
+          <div class="testimonial-carousel" data-testimonial-carousel aria-label="Pastor testimonials">
+            <div class="testimonial-viewport" data-testimonial-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="Pastor endorsements">
+              <!-- Testimonial 1: replace the placeholder image when Aaron's headshot is available. -->
+              <article class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 3">
+                <img class="testimonial-photo" src="assets/pictures/pastor-placeholder.svg" alt="Placeholder for Aaron Martin headshot">
+                <div class="testimonial-content">
+                  <blockquote class="testimonial-quote">I enthusiastically endorse Dan Shults for the Go Albany Church Planting Initiative. Having pastored Dan for the past several years, I have observed him to be a man of godly character, expositional faithfulness, and deep care for those within his sphere of influence. One of the most important things I’ve observed and appreciate about Dan is exhibited a shepherd’s heart without any “official” role or title at our church. He and his wife, Skyler, have been catalysts used by God to make and multiply disciples among our young married couples. I have experienced Dan as a faithful and gifted communicator of God’s Word, thoughtful and strategic leader, and compassionate shepherd. I recommend Dan without reservation - he is called, equipped, and ready. If you are a church leader looking for a ministry partner to lock arms with in one of the most spiritually dark places in our country, I would encourage you to look no further than Dan Shults.</blockquote>
+                  <div class="testimonial-pastor">
+                    <strong class="testimonial-name">Aaron Martin</strong>
+                    <p class="testimonial-role">Senior Pastor, Community Bible Church</p>
+                    <p class="testimonial-location">High Point, NC</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Testimonial 2: Sean Pierce. -->
+              <article class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 3">
+                <img class="testimonial-photo" src="assets/Pastors/Sean (1).avif" alt="Sean Pierce">
+                <div class="testimonial-content">
+                  <blockquote class="testimonial-quote">Daniel and Skyler Shults are a wonderful couple well suited to ministry and church planting in New York’s capital region, Albany. Albany has tremendous lostness in its own right, calling for its own new churches. It is also a major crossroads of the Northeast with opportunities throughout most of the Northeast. Daniel and Skyler have the heart to not just reach their personal community but to also be a part of seeing God do something much larger. Church planting in the region is desperately needed. Daniel and Skyler will be supported by a thriving network of churches and church plants already here, Hudson Baptist Association, that has worked together with other partners to plant 31 churches in the region since 2001. We’re excited for them to be planting number 32! We encourage others to join us in helping them see their vision become a reality. Would you invest in the largest US mission field?</blockquote>
+                  <div class="testimonial-pastor">
+                    <strong class="testimonial-name">Sean Pierce</strong>
+                    <p class="testimonial-role">Pastor, Director of Multiply Northeast</p>
+                    <p class="testimonial-location">Guilderland, NY</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Testimonial 3: Adam Mihm. -->
+              <article class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 3">
+                <img class="testimonial-photo" src="assets/Pastors/Adam.jpg" alt="Adam Mihm">
+                <div class="testimonial-content">
+                  <blockquote class="testimonial-quote">Dan and Skyler have a love for Jesus and people that is contagious. It has been such a joy to watch these loves grow and then lead them to move to this area of the country that has a desperate need for the Good News of Jesus and churches that tell and live that Good News! The Northeast has a growing hunger for the hope of Jesus, and more churches are needed to reach more people. Their vision for Go Albany to help start and strengthen churches is so exciting and also challenging for those of us currently serving in this beautiful harvest field! We love and wholeheartedly endorse Dan and Skyler in this sacrificial commitment to love Jesus and serve people and look forward to seeing the eternal fruit of their labor!</blockquote>
+                  <div class="testimonial-pastor">
+                    <strong class="testimonial-name">Adam Mihm</strong>
+                    <p class="testimonial-role">Pastor, Cross Point Fellowship</p>
+                    <p class="testimonial-location">Hurley, NY</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="testimonial-controls" aria-label="Testimonial controls">
+              <button class="testimonial-arrow" type="button" data-testimonial-previous aria-label="Show previous testimonial">&#8592;</button>
+              <div class="testimonial-dots" aria-label="Choose a testimonial">
+                <button class="testimonial-dot" type="button" data-testimonial-dot="0" aria-label="Show testimonial 1" aria-current="true"></button>
+                <button class="testimonial-dot" type="button" data-testimonial-dot="1" aria-label="Show testimonial 2" aria-current="false"></button>
+                <button class="testimonial-dot" type="button" data-testimonial-dot="2" aria-label="Show testimonial 3" aria-current="false"></button>
+              </div>
+              <button class="testimonial-arrow" type="button" data-testimonial-next aria-label="Show next testimonial">&#8594;</button>
             </div>
           </div>
 
@@ -3275,6 +3482,129 @@
         });
 
         mobileQuery.addEventListener("change", () => setMenuOpen(false));
+      })();
+
+      (() => {
+        const carousel = document.querySelector("[data-testimonial-carousel]");
+        const viewport = carousel?.querySelector("[data-testimonial-viewport]");
+        const slides = Array.from(viewport?.querySelectorAll(".testimonial-slide") || []);
+        const dots = Array.from(carousel?.querySelectorAll("[data-testimonial-dot]") || []);
+        const previousButton = carousel?.querySelector("[data-testimonial-previous]");
+        const nextButton = carousel?.querySelector("[data-testimonial-next]");
+
+        if (!carousel || !viewport || slides.length !== 3 || dots.length !== 3 || !previousButton || !nextButton) {
+          return;
+        }
+
+        slides.forEach((slide, index) => {
+          slide.dataset.testimonialIndex = String(index);
+        });
+
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone = slides[slides.length - 1].cloneNode(true);
+        firstClone.setAttribute("aria-hidden", "true");
+        lastClone.setAttribute("aria-hidden", "true");
+        viewport.prepend(lastClone);
+        viewport.append(firstClone);
+
+        const trackSlides = Array.from(viewport.querySelectorAll(".testimonial-slide"));
+        let activeIndex = 0;
+        let physicalIndex = 1;
+        let scrollFrame = 0;
+        let settleTimer = 0;
+        const supportsScrollEnd = "onscrollend" in viewport;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        const updateControls = (index) => {
+          activeIndex = (index + slides.length) % slides.length;
+          dots.forEach((dot, dotIndex) => {
+            dot.setAttribute("aria-current", String(dotIndex === activeIndex));
+          });
+        };
+
+        const scrollToPhysicalSlide = (index, behavior = "smooth") => {
+          physicalIndex = index;
+          const shouldJump = reducedMotion.matches || behavior === "auto";
+
+          if (shouldJump) {
+            viewport.classList.add("is-jumping");
+            viewport.scrollLeft = trackSlides[index].offsetLeft;
+            window.requestAnimationFrame(() => viewport.classList.remove("is-jumping"));
+          } else {
+            viewport.scrollTo({
+              left: trackSlides[index].offsetLeft,
+              behavior: "smooth",
+            });
+          }
+          updateControls(Number(trackSlides[index].dataset.testimonialIndex));
+        };
+
+        const settleLoop = () => {
+          if (physicalIndex === 0) {
+            scrollToPhysicalSlide(slides.length, "auto");
+          } else if (physicalIndex === trackSlides.length - 1) {
+            scrollToPhysicalSlide(1, "auto");
+          }
+        };
+
+        const move = (direction) => {
+          if (physicalIndex === 0) {
+            scrollToPhysicalSlide(slides.length, "auto");
+          } else if (physicalIndex === trackSlides.length - 1) {
+            scrollToPhysicalSlide(1, "auto");
+          }
+          scrollToPhysicalSlide(physicalIndex + direction);
+        };
+
+        previousButton.addEventListener("click", () => move(-1));
+        nextButton.addEventListener("click", () => move(1));
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => scrollToPhysicalSlide(index + 1));
+        });
+
+        viewport.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            move(-1);
+          } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            move(1);
+          } else if (event.key === "Home") {
+            event.preventDefault();
+            scrollToPhysicalSlide(1);
+          } else if (event.key === "End") {
+            event.preventDefault();
+            scrollToPhysicalSlide(slides.length);
+          }
+        });
+
+        viewport.addEventListener("scroll", () => {
+          if (!supportsScrollEnd) {
+            window.clearTimeout(settleTimer);
+            settleTimer = window.setTimeout(settleLoop, 140);
+          }
+
+          if (scrollFrame) {
+            return;
+          }
+
+          scrollFrame = window.requestAnimationFrame(() => {
+            scrollFrame = 0;
+            physicalIndex = trackSlides.reduce((closestIndex, slide, index) => {
+              const currentDistance = Math.abs(trackSlides[closestIndex].offsetLeft - viewport.scrollLeft);
+              const nextDistance = Math.abs(slide.offsetLeft - viewport.scrollLeft);
+              return nextDistance < currentDistance ? index : closestIndex;
+            }, 0);
+            updateControls(Number(trackSlides[physicalIndex].dataset.testimonialIndex));
+          });
+        }, { passive: true });
+
+        if (supportsScrollEnd) {
+          viewport.addEventListener("scrollend", settleLoop);
+        }
+
+        window.addEventListener("resize", () => scrollToPhysicalSlide(activeIndex + 1, "auto"));
+        scrollToPhysicalSlide(1, "auto");
       })();
 
       (() => {
