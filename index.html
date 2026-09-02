@@ -1448,8 +1448,8 @@
         flex: 0 0 100%;
         min-width: 0;
         display: grid;
-        grid-template-columns: minmax(200px, 0.62fr) minmax(0, 1.38fr);
-        height: clamp(270px, 24vw, 320px);
+        grid-template-columns: minmax(250px, 0.62fr) minmax(0, 1.38fr);
+        min-height: clamp(310px, 26vw, 340px);
         overflow: hidden;
         scroll-snap-align: start;
         scroll-snap-stop: always;
@@ -1459,18 +1459,27 @@
       }
 
       .testimonial-photo {
-        width: 100%;
-        height: 100%;
-        min-height: 0;
+        width: clamp(190px, 17vw, 210px);
+        aspect-ratio: 4 / 5;
         display: block;
         object-fit: cover;
+        object-position: var(--pastor-photo-position, center center);
+        border-radius: 14px;
+      }
+
+      .testimonial-profile {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        padding: 8px 14px;
+        background: linear-gradient(145deg, rgba(252, 196, 0, 0.07), rgba(210, 90, 45, 0.04));
       }
 
       .testimonial-content {
         display: grid;
-        grid-template-rows: minmax(0, 1fr) auto;
+        grid-template-rows: auto auto;
         align-content: stretch;
-        gap: 10px;
+        gap: 9px;
         min-height: 0;
         padding: clamp(16px, 2.4vw, 26px);
       }
@@ -1481,13 +1490,8 @@
         color: var(--ink);
         font-family: var(--font-display);
         min-height: 0;
-        padding-right: 10px;
-        overflow-y: auto;
-        overscroll-behavior-y: contain;
-        scrollbar-color: rgba(0, 18, 84, 0.2) transparent;
-        scrollbar-width: thin;
-        font-size: clamp(1.02rem, 1.35vw, 1.28rem);
-        line-height: 1.38;
+        font-size: clamp(0.9rem, 1.06vw, 1.04rem);
+        line-height: 1.34;
         text-wrap: balance;
       }
 
@@ -1504,8 +1508,10 @@
       .testimonial-pastor {
         display: grid;
         gap: 2px;
-        padding-top: 8px;
+        width: 100%;
+        padding-top: 7px;
         border-top: 2px solid rgba(252, 196, 0, 0.7);
+        text-align: left;
       }
 
       .testimonial-name {
@@ -1516,15 +1522,23 @@
       }
 
       .testimonial-role,
+      .testimonial-church,
       .testimonial-location {
         margin: 0;
         color: var(--muted);
-        font-size: 0.86rem;
-        line-height: 1.45;
+        font-size: 0.8rem;
+        line-height: 1.3;
       }
 
-      .testimonial-role {
-        font-weight: 700;
+      .testimonial-details {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 2px 4px;
+      }
+
+      .testimonial-details p:not(:last-child)::after {
+        content: ",";
       }
 
       .testimonial-controls {
@@ -2134,25 +2148,26 @@
 
         .testimonial-slide {
           grid-template-columns: 1fr;
-          grid-template-rows: 105px 290px;
-          height: 395px;
+          grid-template-rows: 235px auto;
           min-height: 0;
+          height: auto;
         }
 
         .testimonial-photo {
-          height: 105px;
-          min-height: 0;
-          object-position: center 28%;
+          width: 170px;
+        }
+
+        .testimonial-profile {
+          padding: 8px 14px;
         }
 
         .testimonial-content {
-          gap: 9px;
-          padding: 16px 18px;
+          padding: 12px 18px 16px;
         }
 
         .testimonial-quote {
-          font-size: clamp(0.98rem, 4.3vw, 1.12rem);
-          line-height: 1.35;
+          font-size: clamp(0.86rem, 3.6vw, 0.96rem);
+          line-height: 1.32;
         }
 
         .testimonial-quote::before {
@@ -3312,41 +3327,55 @@
 
           <div class="testimonial-carousel" data-testimonial-carousel aria-label="Pastor testimonials">
             <div class="testimonial-viewport" data-testimonial-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="Pastor endorsements">
-              <!-- Testimonial 1: replace the placeholder image when Aaron's headshot is available. -->
               <article class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 3">
-                <img class="testimonial-photo" src="assets/pictures/pastor-placeholder.svg" alt="Placeholder for Aaron Martin headshot">
+                <div class="testimonial-profile">
+                  <img class="testimonial-photo" src="assets/Pastors/Aaron.png" alt="Aaron Martin">
+                </div>
                 <div class="testimonial-content">
                   <blockquote class="testimonial-quote">I enthusiastically endorse Dan Shults for the Go Albany Church Planting Initiative. Having pastored Dan for the past several years, I have observed him to be a man of godly character, expositional faithfulness, and deep care for those within his sphere of influence. One of the most important things I’ve observed and appreciate about Dan is exhibited a shepherd’s heart without any “official” role or title at our church. He and his wife, Skyler, have been catalysts used by God to make and multiply disciples among our young married couples. I have experienced Dan as a faithful and gifted communicator of God’s Word, thoughtful and strategic leader, and compassionate shepherd. I recommend Dan without reservation - he is called, equipped, and ready. If you are a church leader looking for a ministry partner to lock arms with in one of the most spiritually dark places in our country, I would encourage you to look no further than Dan Shults.</blockquote>
                   <div class="testimonial-pastor">
                     <strong class="testimonial-name">Aaron Martin</strong>
-                    <p class="testimonial-role">Senior Pastor, Community Bible Church</p>
-                    <p class="testimonial-location">High Point, NC</p>
+                    <div class="testimonial-details">
+                      <p class="testimonial-role">Senior Pastor</p>
+                      <p class="testimonial-church">Community Bible Church</p>
+                      <p class="testimonial-location">High Point, NC</p>
+                    </div>
                   </div>
                 </div>
               </article>
 
               <!-- Testimonial 2: Sean Pierce. -->
               <article class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 3">
-                <img class="testimonial-photo" src="assets/Pastors/Sean (1).avif" alt="Sean Pierce">
+                <div class="testimonial-profile">
+                  <img class="testimonial-photo" src="assets/Pastors/Sean.png" alt="Sean Pierce">
+                </div>
                 <div class="testimonial-content">
                   <blockquote class="testimonial-quote">Daniel and Skyler Shults are a wonderful couple well suited to ministry and church planting in New York’s capital region, Albany. Albany has tremendous lostness in its own right, calling for its own new churches. It is also a major crossroads of the Northeast with opportunities throughout most of the Northeast. Daniel and Skyler have the heart to not just reach their personal community but to also be a part of seeing God do something much larger. Church planting in the region is desperately needed. Daniel and Skyler will be supported by a thriving network of churches and church plants already here, Hudson Baptist Association, that has worked together with other partners to plant 31 churches in the region since 2001. We’re excited for them to be planting number 32! We encourage others to join us in helping them see their vision become a reality. Would you invest in the largest US mission field?</blockquote>
                   <div class="testimonial-pastor">
                     <strong class="testimonial-name">Sean Pierce</strong>
-                    <p class="testimonial-role">Pastor, Director of Multiply Northeast</p>
-                    <p class="testimonial-location">Guilderland, NY</p>
+                    <div class="testimonial-details">
+                      <p class="testimonial-role">Pastor</p>
+                      <p class="testimonial-church">Director of Multiply Northeast</p>
+                      <p class="testimonial-location">Guilderland, NY</p>
+                    </div>
                   </div>
                 </div>
               </article>
 
               <!-- Testimonial 3: Adam Mihm. -->
               <article class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 3">
-                <img class="testimonial-photo" src="assets/Pastors/Adam.jpg" alt="Adam Mihm">
+                <div class="testimonial-profile">
+                  <img class="testimonial-photo" src="assets/Pastors/Adam.png" alt="Adam Mihm">
+                </div>
                 <div class="testimonial-content">
                   <blockquote class="testimonial-quote">Dan and Skyler have a love for Jesus and people that is contagious. It has been such a joy to watch these loves grow and then lead them to move to this area of the country that has a desperate need for the Good News of Jesus and churches that tell and live that Good News! The Northeast has a growing hunger for the hope of Jesus, and more churches are needed to reach more people. Their vision for Go Albany to help start and strengthen churches is so exciting and also challenging for those of us currently serving in this beautiful harvest field! We love and wholeheartedly endorse Dan and Skyler in this sacrificial commitment to love Jesus and serve people and look forward to seeing the eternal fruit of their labor!</blockquote>
                   <div class="testimonial-pastor">
                     <strong class="testimonial-name">Adam Mihm</strong>
-                    <p class="testimonial-role">Pastor, Cross Point Fellowship</p>
-                    <p class="testimonial-location">Hurley, NY</p>
+                    <div class="testimonial-details">
+                      <p class="testimonial-role">Pastor</p>
+                      <p class="testimonial-church">Cross Point Fellowship</p>
+                      <p class="testimonial-location">Hurley, NY</p>
+                    </div>
                   </div>
                 </div>
               </article>
