@@ -2802,6 +2802,96 @@
           padding: 20px 18px;
         }
       }
+
+      .partner-logos {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        padding: 2px 0 8px;
+        mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+      }
+
+      .partner-logo-track {
+        display: flex;
+        width: max-content;
+        animation: partner-logo-scroll 38s linear infinite;
+      }
+
+      .partner-logo-group {
+        display: flex;
+        flex: 0 0 auto;
+        gap: 12px;
+        padding-right: 12px;
+      }
+
+      .partner-logo {
+        flex: 0 0 clamp(176px, 20vw, 224px);
+        min-height: 148px;
+        grid-template-rows: 54px auto auto;
+        gap: 7px;
+        padding: 14px;
+        border-radius: 12px;
+        box-shadow: 0 7px 18px rgba(0, 18, 84, 0.04);
+      }
+
+      .partner-logo-mark {
+        height: 54px;
+      }
+
+      .partner-logo-mark img {
+        max-width: 150px;
+      }
+
+      .partner-logo-label {
+        font-size: 0.92rem;
+        line-height: 1.12;
+      }
+
+      .partner-logo-sub {
+        font-size: 0.73rem;
+        line-height: 1.25;
+      }
+
+      .partner-logo.text-only {
+        flex-basis: 280px;
+        min-height: 148px;
+        align-content: center;
+        padding: 14px 18px;
+      }
+
+      .partner-logo.text-only .partner-logo-label::after {
+        margin-top: 7px;
+      }
+
+      .partner-invite-copy {
+        font-size: 0.73rem;
+      }
+
+      .partner-invite-link {
+        min-height: 34px;
+        padding: 6px 12px;
+        font-size: 0.76rem;
+      }
+
+      .partner-logo-track:hover,
+      .partner-logo-track:focus-within {
+        animation-play-state: paused;
+      }
+
+      @keyframes partner-logo-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .partner-logo-track {
+          animation: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -3225,7 +3315,7 @@
                 <img src="assets/icons/06_money.svg" alt="">
               </span>
               <p>
-                For added accountability, Giving to Go Albany is currently processed through Cross Point Fellowship, which is overseeing and administering our finances. When giving, please select <strong>“Go Albany - Church planting” in the first dropdown</strong> so that your gift is directed to this ministry. Gifts are 501(c) tax-deductible.
+                For added accountability, Giving to Go Albany is currently processed through Cross Point Fellowship, which is overseeing and administering our finances. When giving, please select <strong>“Go Albany - Church planting” in the first dropdown</strong> so that your gift is directed to this ministry. Gifts are 501(c)(3) tax-deductible.
               </p>
             </div>
             <div class="actions">
@@ -3393,39 +3483,92 @@
           </div>
 
           <div class="partner-logos" aria-label="Current partners and endorsers">
-            <article class="partner-logo">
+            <div class="partner-logo-track">
+              <div class="partner-logo-group">
+                <article class="partner-logo">
               <div class="partner-logo-mark">
                 <img src="assets/ChurchLogos/NAMB (1).png" alt="North American Mission Board logo">
               </div>
               <div class="partner-logo-label">North American Mission Board</div>
               <div class="partner-logo-sub">Send Network</div>
             </article>
-            <article class="partner-logo">
+                <article class="partner-logo">
               <div class="partner-logo-mark">
                 <img src="assets/ChurchLogos/Crosspointny logo.jpg" alt="Cross Point Fellowship logo">
               </div>
               <div class="partner-logo-label">Cross Point Fellowship</div>
               <div class="partner-logo-sub">Kingston, NY</div>
             </article>
-            <article class="partner-logo">
+                <article class="partner-logo">
               <div class="partner-logo-mark">
-                <img src="assets/ChurchLogos/image (3).png" alt="Community Bible Church logo">
+                <img src="assets/ChurchLogos/communitybiblechurch.png" alt="Community Bible Church logo">
               </div>
               <div class="partner-logo-label">Community Bible Church</div>
               <div class="partner-logo-sub">High Point, NC</div>
             </article>
-            <article class="partner-logo">
+                <article class="partner-logo">
               <div class="partner-logo-mark">
-                <img src="assets/ChurchLogos/image (2).png" alt="River of Life Church logo">
+                <img src="assets/ChurchLogos/riveroflife.png" alt="River of Life Church logo">
               </div>
               <div class="partner-logo-label">River of Life</div>
               <div class="partner-logo-sub">Guilderland, NY</div>
             </article>
-            <article class="partner-logo text-only">
+                <article class="partner-logo">
+              <div class="partner-logo-mark">
+                <img src="assets/ChurchLogos/Calvary.png" alt="Calvary Church logo">
+              </div>
+              <div class="partner-logo-label">Calvary Church</div>
+              <div class="partner-logo-sub">Winston-Salem, NC</div>
+            </article>
+                <article class="partner-logo text-only">
               <div class="partner-logo-label">And More</div>
               <div class="partner-logo-sub partner-invite-copy">Is your church interested in coming alongside the work? We’d love to connect and explore what a partnership with Go Albany could look like.</div>
               <a class="partner-invite-link" href="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" target="_blank" rel="noopener noreferrer">Connect With Us</a>
-            </article>
+                </article>
+              </div>
+              <div class="partner-logo-group" aria-hidden="true">
+                <article class="partner-logo">
+                  <div class="partner-logo-mark">
+                    <img src="assets/ChurchLogos/NAMB (1).png" alt="">
+                  </div>
+                  <div class="partner-logo-label">North American Mission Board</div>
+                  <div class="partner-logo-sub">Send Network</div>
+                </article>
+                <article class="partner-logo">
+                  <div class="partner-logo-mark">
+                    <img src="assets/ChurchLogos/Crosspointny logo.jpg" alt="">
+                  </div>
+                  <div class="partner-logo-label">Cross Point Fellowship</div>
+                  <div class="partner-logo-sub">Kingston, NY</div>
+                </article>
+                <article class="partner-logo">
+                  <div class="partner-logo-mark">
+                    <img src="assets/ChurchLogos/communitybiblechurch.png" alt="">
+                  </div>
+                  <div class="partner-logo-label">Community Bible Church</div>
+                  <div class="partner-logo-sub">High Point, NC</div>
+                </article>
+                <article class="partner-logo">
+                  <div class="partner-logo-mark">
+                    <img src="assets/ChurchLogos/riveroflife.png" alt="">
+                  </div>
+                  <div class="partner-logo-label">River of Life</div>
+                  <div class="partner-logo-sub">Guilderland, NY</div>
+                </article>
+                <article class="partner-logo">
+                  <div class="partner-logo-mark">
+                    <img src="assets/ChurchLogos/Calvary.png" alt="">
+                  </div>
+                  <div class="partner-logo-label">Calvary Church</div>
+                  <div class="partner-logo-sub">Winston-Salem, NC</div>
+                </article>
+                <article class="partner-logo text-only">
+                  <div class="partner-logo-label">And More</div>
+                  <div class="partner-logo-sub partner-invite-copy">Is your church interested in coming alongside the work? We’d love to connect and explore what a partnership with Go Albany could look like.</div>
+                  <a class="partner-invite-link" href="https://calendly.com/danielshults99/30min?primary_color=3a4a7a" target="_blank" rel="noopener noreferrer" tabindex="-1">Connect With Us</a>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </section>
